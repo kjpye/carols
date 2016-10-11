@@ -2,7 +2,7 @@
 	lilypond $<
 	-mv $*.midi $*.kar
 
-carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas
+carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas gotell2 belltoll jubilate
 
 shanties: blowthemandown southaustralia highbarbary drunkensailor
 
@@ -147,6 +147,24 @@ gotell: gotell.pdf gotell.kar
 gotell.kar gotell.pdf: gotell.ly
 	lilypond gotell
 	mv gotell.midi gotell.kar
+
+gotell2: gotell2.pdf gotell2.kar
+
+gotell2.kar gotell2.pdf: gotell2.ly
+	lilypond gotell2
+	mv gotell2.midi gotell2.kar
+
+jubilate: jubilate.pdf jubilate.kar
+
+jubilate.kar jubilate.pdf: jubilate.ly
+	lilypond jubilate
+	mv jubilate.midi jubilate.kar
+
+belltoll: belltoll.pdf belltoll.kar
+
+belltoll.kar belltoll.pdf: belltoll.ly
+	lilypond belltoll
+	mv belltoll.midi belltoll.kar
 
 bells: bells.pdf bells.kar
 
