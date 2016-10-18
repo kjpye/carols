@@ -23,8 +23,8 @@ melody = \relative c'' {
     f4. g8 a a a a
     f4. g8 a a bes bes
     a4 g f e
-    f2. r4
     f2. r4\mark "C"
+    f2. r4
     f2. r4
     f2 c
     f2. c'4
