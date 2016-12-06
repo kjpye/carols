@@ -150,7 +150,7 @@ fourthverse = \lyricmode {
   Fails my heart, I know not how;
   I can go no long- "er.\""
   "\"Mark" my foot- steps, good my page;
-  Tread thou ion them bold- ly;
+  Tread thou in them bold- ly;
   Thou shalt find the win- ter's rage
   Freeze thy blood less cold- "ly.\""
 }
@@ -164,7 +164,7 @@ fifthverse = \lyricmode {
   Where the snow lay dint- ed;
   Heat was in the ve- ry sod
   Which the Saint had print- ed.
-  There- fore, Christ- ian men, be sure,
+  There- fore, Christ- ians all, be sure,
   Wealth or rank pos- ses- sing,
   Ye who now will bless the poor,
   Shall your- selves find bless- ing.
