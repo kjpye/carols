@@ -63,10 +63,10 @@ melody = \relative c' {
       fis2 fis8 e d b
       a2 d4 g
       fis4. d8 e4. e8
-      d1
+      d2. r8 d
     %}
     fis8 a a b a fis4 d8
-    e8 d d e fis a4 d,8
+    e8 d d e fis(a4) d,8
     fis8 a a b a fis4 d8
     e8 d d b a2
   }
@@ -136,14 +136,14 @@ emptyrefrain = \lyricmode {
 
 firstverse = \lyricmode {
   \set stanza = "1. "
-  When I _ was a sin- ner
+  _ When I was a sin- ner
   I prayed both night and day
   I asked the Lord to help me
   and He showed me the way
 }
 
 Mfirstverse = \lyricmode {
- "When " "I " _ "was " "a " "sin" "ner "
+ _ "When " "I " "was " "a " "sin" "ner "
  "I " "prayed " "both " "night " "and " "day "
  "I " "asked " "the " "Lord " "to " "help " "me "
  "and " "He " "showed " "me " "the " "way "
@@ -166,14 +166,14 @@ Msecondverse = \lyricmode {
 
 thirdverse = \lyricmode {
   \set stanza = "3. "
-  He made _ me a watch- man
+  _ He made me a watch- man
   Up- on the cit- y wall
   And if I am a christ- ian
   I am the least of all
 }
 
 Mthirdverse = \lyricmode {
- "He " "made " _ "me " "a " "watch" "man "
+ _ "He " "made " "me " "a " "watch" "man "
  "Up" "on " "the " "cit" "y " "wall "
  "And " "if " "I " "am " "a " "christ" "ian "
  "I " "am " "the " "least " "of " "all "
