@@ -3,40 +3,55 @@
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
-  title = "The Bell Doth Toll"
+  title = "The Twelve Days of the Cloud"
+  composer = "Traditional"
+  poet = "CenITex"
   copyright = \today
 }
 
 global = {
   \key f \major
   \time 4/4
-  \tempo 4=120
+  \tempo 4=100
 }
 
-melody = \relative c'' {
-  \partial 4 c4\mark "A"
-  \repeat volta 3 {
-    a4. bes8 c4 c
-    a4. bes8 c4 d
-    c4 bes a g
-    a2. a4\mark "B"
-    f4. g8 a a a a
-    f4. g8 a a bes bes
-    a4 g f e
-    f2. r4\mark "C"
-    f2. r4
-    f2. r4
-    f2 c
-    f2. c'4
+melody = \relative c' {
+  \partial 4 c8 c
+  a8 a f' f f4 e8 f
+  g8 a bes g a2
+  \repeat volta 7 {
+    \time 3/4
+    c8 c g a bes g
   }
+  \time 4/4
+  c2 d4 b
+  c1
+  \time 3/4
+  c8(bes) a g f4
+  bes4 d, f
+  \time 4/4
+  g8(f) e d c4 a'8 bes 
+  c4 d8(bes) a f g4
+  f2. \bar "||"
 }
 
 firstverse = \lyricmode {
-  The bell doth toll, Its echo- es roll, I know the sound full well;
-  I love its ring- ing, For it calls to sing- ing,
-  With its bim, bim, bim, bom bell.
-  Bim, bom, bim, bom, bell
-  The
+  On the twelfth _ day of Christ- mas my true love sent to me
+  Twelve _ drum- mers drum- ming
+  Five gold- en rings
+  Four call- ing birds
+  Three French hens
+  Two tur- tle doves
+  and a par- tridge in a pear tree.
+}
+
+otherverses = \lyricmode {
+  Eleven pi- pers pip- ing
+  Ten lords a- leap- ing
+  Nine la- dies danc- ing
+  Eight maids a milk- ing
+  Seven swans a swim- ming
+  Six geese a lay- ing
 }
 
 Mwords =\lyricmode {
@@ -53,7 +68,7 @@ Mwords =\lyricmode {
 	\context Staff = melody <<
 	  \context Voice =
 	  sopranos { \set midiInstrument = #"clarinet"
-		     \oneVoice << \transpose f c {\global \melody} >> }
+		     \oneVoice << {\global \melody} >> }
 	>>
 	\context Lyrics = firstverse { s1 }
 	\context Lyrics = firstverse \lyricsto sopranos \firstverse

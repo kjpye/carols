@@ -32,30 +32,6 @@ firstverse = \lyricmode {
 }
 
 Mwords =\lyricmode {
-  "Go " "tell " "it " "on " "the " "moun" "tain,"
-  "/O" "ver " "the " "hills " "and " "ev" "'ry" "where,"
-  "/Go " "tell " "it " "on " "the " "moun" "tain"
-  "/That " "Je" "sus " "Christ " "is " "born."
-  "\Go " "tell " "it " "on " "the " "moun" "tain,"
-  "/O" "ver " "the " "hills " "and " "ev" "'ry" "where,"
-  "/Go " "tell " "it " "on " "the " "moun" "tain"
-  "/That " "Je" "sus " "Christ " "is " "born."
-  "\Down " "in " "a " "lone" "ly " "man" "ger,"
-  "/The " "hum" "ble " "Christ " "was " "born,"
-  "/And " "God " "sent " "out " "sal" "va" "tion"
-  "/That " "bless" "ed " "Christ" "mas " "morn."
-  "\Go " "tell " "it " "on " "the " "moun" "tain,"
-  "/O" "ver " "the " "hills " "and " "ev" "'ry" "where,"
-  "/Go " "tell " "it " "on " "the " "moun" "tain"
-  "/That " "Je" "sus " "Christ " "is " "born."
-  "\While " "shep" "herds " "kept " "their " "watch, " ""
-  "/O'er " "si" "lent " "flocks " "by " "night,"
-  "/Be " "hold! " "through" "out " "the " "heav" "ens"
-  "/There " "shone " "a " "ho" "ly " "light."
-  "\Go " "tell " "it " "on " "the " "moun" "tain,"
-  "/O" "ver " "the " "hills " "and " "ev" "'ry" "where,"
-  "/Go " "tell " "it " "on " "the " "moun" "tain"
-  "/That " "Je" "sus " "Christ " "is " "born."
 }
 
 \book
@@ -69,7 +45,7 @@ Mwords =\lyricmode {
 	\context Staff = melody <<
 	  \context Voice =
 	  sopranos { \set midiInstrument = #"clarinet"
-		     \oneVoice << \global \melody >> }
+		     \oneVoice << \transpose c g, {\global \melody} >> }
 	>>
 	\context Lyrics = firstverse { s1 }
 	\context Lyrics = firstverse \lyricsto sopranos \firstverse
