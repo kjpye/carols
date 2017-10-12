@@ -63,7 +63,7 @@ melody = \relative c' {
       fis2 fis8 e d b
       a2 d4 g
       fis4. d8 e4. e8
-      d2. r8 d
+      d2. r8 d^\markup{FINE}
     %}
     fis8 a a b a fis4 d8
     e8 d d e fis(a4) d,8
@@ -166,14 +166,14 @@ Msecondverse = \lyricmode {
 
 thirdverse = \lyricmode {
   \set stanza = "3. "
-  _ He made me a watch- man
+  _ God made me a watch- er
   Up- on the cit- y wall
   And if I am a christ- ian
   I am the least of all
 }
 
 Mthirdverse = \lyricmode {
- _ "He " "made " "me " "a " "watch" "man "
+ _ "God " "made " "me " "a " "watch" "er "
  "Up" "on " "the " "cit" "y " "wall "
  "And " "if " "I " "am " "a " "christ" "ian "
  "I " "am " "the " "least " "of " "all "

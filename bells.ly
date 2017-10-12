@@ -18,7 +18,7 @@ melodyA = \relative c'' {
 }
 
 melodyB = \relative c' {
-  ees2 bes2
+  ees2^\markup{\bold \huge {*}} bes2
   g'4 bes aes f
   ees1
   g4 bes ees c
@@ -80,14 +80,14 @@ MwordsTwo = { \MwordsC \MwordsA \MwordsB }
 		     \oneVoice << \global \melodyOne >> }
 	>>
 	\context Lyrics = partOne { s1 }
-	\context Staff = partTwo <<
-	  \context Voice =
-	  partTwo { \set midiInstrument = #"oboe"
-		     \oneVoice << \global \melodyTwo >> }
-	>>
-	\context Lyrics = partOne { s1 }
+%	\context Staff = partTwo <<
+%	  \context Voice =
+%	  partTwo { \set midiInstrument = #"oboe"
+%		     \oneVoice << \global \melodyTwo >> }
+%	>>
+%	\context Lyrics = partOne { s1 }
 	\context Lyrics = partOne \lyricsto partOne { \wordsOne }
-	\context Lyrics = partTwo \lyricsto partTwo { \wordsTwo }
+%	\context Lyrics = partTwo \lyricsto partTwo { \wordsTwo }
       >>
     >>
     \layout {
