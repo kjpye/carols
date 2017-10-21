@@ -21,14 +21,14 @@ melodyA = \relative c'' {
 }
 
 melodyB = \relative c'' {
-  c4. c,8 c4 d
+  c4.^\markup{\bold \huge *} c,8 c4 d
   e c e g
   a2 g4(f)
   e1
 }
 
 melodyC = \relative c' {
-  e4. f8 f4 d
+  e4.^\markup{\bold \huge *} f8 f4 d
   c4 c' g e
   f2 g4(b,)
   c1

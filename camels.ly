@@ -8,15 +8,23 @@ global = {
 }
 
 sopMusic = \relative c' {
-  \repeat volta 3 {
     \partial 8 b8^\mf
-    e8 e4 e8 fis4 fis
+  \repeat volta 3 {
+    \set melismaBusyProperties = #'()
+    \slurUp
+    \slurDashed
+    e8(e4) e8 fis4 fis
+    \unset melismaBusyProperties
     g4 fis e d
     e8 e4. fis4 d
     b2. b4
     e4. e8 fis4 fis
     g4 a b c
-    b8 g4 g8 a4 fis
+    \set melismaBusyProperties = #'()
+    \slurUp
+    \slurDashed
+    b8 g4(g8) a4 fis
+    \unset melismaBusyProperties
     e2. r4
     \time 6/8 % \tempo 4 = 4.
     d'4^\mp d8 b8. c16 d8
@@ -26,20 +34,28 @@ sopMusic = \relative c' {
     d'4^\pp d8 b8. c16 d8
     c8. b16 a8 b b a
     g4 g8 g4 e8
-    g4. r
+    g4. b8
   }
 }
 
 altoMusic = \relative c' {
+  \partial 8 b8
   \repeat volta 3 {
-    \partial 8 b8
-    b8 b4 b8 d4 d
+    \set melismaBusyProperties = #'()
+    \slurDown
+    \slurDashed
+    b8(b4) b8 d4 d
+    \unset melismaBusyProperties
     e4 d c b
     b8 b4. d4 d
     b2. b4
     b4. b8 d4 d
     e4 e d g
-    g8 d4 d8 e4 e
+    \set melismaBusyProperties = #'()
+    \slurDown
+    \slurDashed
+    g8 d4(d8) e4 e
+    \unset melismaBusyProperties
     e2. r4
     \time 6/8
     fis4 fis8 g8. fis16 g8
@@ -49,20 +65,28 @@ altoMusic = \relative c' {
     fis4 fis8 g8. fis16 g8
     fis8. g16 fis8 fis fis fis
     e4 e8 e4 d8
-    d4. r
+    d4. b8
   }
 }
 
 tenorMusic = \relative c' {
-  \repeat volta 3 {
     \partial 8 g8^\mf
-    g8 g4 g8 a4 a
+  \repeat volta 3 {
+    \set melismaBusyProperties = #'()
+    \slurUp
+    \slurDashed
+    g8(g4) g8 a4 a
+    \unset melismaBusyProperties
     b4 g a fis
     g8 g4. a4 fis
     g2. g4
     g4. g8 a4 a
     b4 c b c
-    d8 b4 b8 c4 d
+    \set melismaBusyProperties = #'()
+    \slurUp
+    \slurDashed
+    d8 b4(b8) c4 d
+    \unset melismaBusyProperties
     b2. r4
     \time 6/8
     b4^\mp b8 b8. a16 b8
@@ -72,20 +96,28 @@ tenorMusic = \relative c' {
     b4^\pp b8 b8. a16 b8
     c8. d16 e8 b b b
     b4 b8 b4 b8
-    b4. r
+    b4. g8
   }
 }
 
 bassMusic = \relative c {
-  \repeat volta 3 {
     \partial 8 e8
-    e8 e4 e8 d4 d
+  \repeat volta 3 {
+    \set melismaBusyProperties = #'()
+    \slurDown
+    \slurDashed
+    e8(e4) e8 d4 d
+    \unset melismaBusyProperties
     c4 c a b
     e8 c4. b4 b
     c2. e4
     e4. e8 d4 d
     c4 c g' e
-    d8 d4 d8 d4 d
+    \set melismaBusyProperties = #'()
+    \slurDown
+    \slurDashed
+    d8 d4(d8) d4 d
+    \unset melismaBusyProperties
     e2. r4
     \time 6/8
     b4 b8 e8. e16 e8
@@ -95,7 +127,7 @@ bassMusic = \relative c {
     b,4 b8 e8. e16 e8
     e8. e16 e8 dis dis b
     e4 d8 c4 c8
-    g'4. r
+    g'4. e8
   }
 }
 
@@ -105,17 +137,18 @@ firstverse = \lyricmode {
   That star ry win- ter night
   _ Fol- lowed, sway- ing si- lent- ly
   A heav'n- ly _ sil- ver light.
+}
+
+chorus = \lyricmode {
   Gent- ly rock- ing they ten- der- ly car- ried the Kings to Beth- le- hem.
   Gent- ly rock- ing they ten- der- ly car- ried the Kings to Beth- le- hem.
 }
 
 Mfirstverse =\lyricmode {
-  "/Si" "lent " "night, " "ho" "ly " "night,"
-  "/all " "is " "calm, " "all " "is " "bright"
-  "/round " "yon " "vir" "gin " "moth" "er " "and " "child."
-  "/Ho" "ly " "in" "fant " "so " "ten" "der " "and " "mild,"
-  "/sleep " "in " "heav" "en" "ly " "peace,"
-  "/sleep " "in " "heav" "en" "ly " "peace."
+  "\The " "cam" "els " "that " "bore " "the " "Wise " "Men " "Three "
+  "/That " "star " "ry " "win" "ter " "night "
+  _ "/Fol" "lowed, " "sway" "ing " "si" "lent" "ly "
+  "/A " "heav'n" "ly " _ "sil" "ver " "light. "
 }
 
 secondverse = \lyricmode {
@@ -127,12 +160,10 @@ secondverse = \lyricmode {
 }
 
 Msecondverse = \lyricmode {
-  "\Si" "lent " "night, " "ho" "ly " "night,"
-  "/shep" "herds " "quake " "at " "the " "sight,"
-  "/glo" "ries " "stream " "from " "heav" "en " "a" "far,"
-  "/heav'n" "ly " "hosts " "" "sing " "al" "le" "lu" "ia."
-  "/Christ " "the " "Sav" "iour " "is " "born,"
-  "/Christ " "the " "Sav" "iour " "is " "born!"
+  "\They " car "ried " "the " "Kings " "through " "field " "and " "wood "
+  "/Of " ced "ar, " "pine " "and " "fir, "
+  _ "/Bring" "ing " "gifts " "to " "One " "so " "good "
+  "/Of " frank in _ "cense " "and " "myrrh. "
 }
 
 thirdverse = \lyricmode {
@@ -144,18 +175,16 @@ thirdverse = \lyricmode {
 }
 
 Mthirdverse = \lyricmode {
-  "\Si" "lent " "night, " "ho" "ly " "night,"
-  "/Son " "of " "God, " "love's " "pure " "light"
-  "/ra" "diant " "beams " "from " "thy " "ho" "ly " "face"
-  "/with " "the " "dawn " "of " "re" "deem" "" "ing " "grace,"
-  "/Je" "sus, " "Lord " "at " "thy " "birth,"
-  "/Je" "sus, " "Lord " "at " "thy " "birth."
+  "\They " "knelt, " "_ " "be- " "side " "the " "new " "born " "Child "
+  "/While " "an- " "ges " "sang " "a- " "bove, "
+  "/And " "saw " "with- " "in " "the " "man- " "ger " "mild "
+  "/The " "prom- " "ise " "of " "peace " "and " "love. "
 }
 
 \book
 {
   \header {
-    title = "A Camels' Carol"
+    title = "The Camels' Carol"
     composer = "Rick Asher"
     poet = "Robert Bode"
     copyright = \today
@@ -167,21 +196,27 @@ Mthirdverse = \lyricmode {
 	sopranos { \voiceOne { \global \sopMusic } }
 	\context Voice =
 	altos { \voiceTwo { \global \altoMusic } }
-      >>
-      \context Lyrics = firstverse { s1 }
-      \context Lyrics = secondverse { s1 }
-      \context Lyrics = thirdverse { s1 }
+      >> % staff women
+      \new Lyrics = "firstverse" \lyricsto "sopranos" {
+        <<
+          {\firstverse}
+          \new Lyrics = "secondverse"
+	    \with { alignBelowContext = #"firstverse" }
+	    {\set associatedVoice = "sopranos" {\secondverse}}
+          \new Lyrics = "thirdverse"
+	    \with { alignBelowContext = #"secondverse" }
+	    {\set associatedVoice = "sopranos" {\thirdverse}}
+        >> % lyrics
+        \chorus
+      }
       \context Staff = men <<
 	\clef bass
 	\context Voice =
 	tenors { \voiceOne {\global \tenorMusic } }
 	\context Voice =
 	basses { \voiceTwo {\global \bassMusic } }
-      >>
-      \context Lyrics = firstverse \lyricsto sopranos \firstverse
-      \context Lyrics = secondverse \lyricsto sopranos \secondverse
-      \context Lyrics = thirdverse \lyricsto sopranos \thirdverse
-    >>
+      >> % staff men
+    >> % choirstaff
     
     \layout {
       \context {
@@ -197,12 +232,12 @@ Mthirdverse = \lyricmode {
       \context Staff = sopranos <<
         \set Staff.midiInstrument = #"flute"
 	\context Voice =
-	sopranos { \voiceOne { \global R2. \unfoldRepeats \sopMusic } }
+	sopranos { \voiceOne { \global \unfoldRepeats \sopMusic } }
       >>
       \context Staff = altos <<
         \set Staff.midiInstrument = #"clarinet"
 	\context Voice =
-	altos { \voiceTwo { \global R2. \unfoldRepeats \altoMusic } }
+	altos { \voiceTwo { \global \unfoldRepeats \altoMusic } }
       >>
       \context Lyrics = firstverse { s1 }
       \context Lyrics = secondverse { s1 }
@@ -211,13 +246,13 @@ Mthirdverse = \lyricmode {
         \set Staff.midiInstrument = #"oboe"
 	\clef bass
 	\context Voice =
-	tenors { \voiceOne {\global R2. \unfoldRepeats \tenorMusic } }
+	tenors { \voiceOne {\global \unfoldRepeats \tenorMusic } }
       >>
       \context Staff = basses <<
         \set Staff.midiInstrument = #"bassoon"
 	\clef bass
 	\context Voice =
-	basses { \voiceTwo {\global R2. \unfoldRepeats \bassMusic } }
+	basses { \voiceTwo {\global \unfoldRepeats \bassMusic } }
       >>
       \context Lyrics = firstverse \lyricsto basses { \Mfirstverse \Msecondverse \Mthirdverse }
     >>
