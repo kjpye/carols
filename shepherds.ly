@@ -1,4 +1,4 @@
-\version "2.19.15"
+\version "2.18.2"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 

@@ -1,8 +1,9 @@
-%.pdf %.kar: %.ly
+%.pdf %.kar %.mp3: %.ly
 	lilypond $<
+	timidity -Or -o - $*.midi | lame -r - $*.mp3
 	-mv $*.midi $*.kar
 
-carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas gotell2 belltoll jubilate
+carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas gotell2 belltoll jubilate camels gaudeamus
 
 shanties: blowthemandown southaustralia highbarbary drunkensailor
 
@@ -96,6 +97,7 @@ faithful: faithful.pdf faithful-descant.kar faithful-soprano.kar faithful-alto.k
 
 faithful.pdf faithful-descant.kar faithful-soprano.kar faithful-alto.kar faithful-tenor.kar faithful-bass.kar: faithful.ly
 	lilypond faithful.ly
+	timidity -Or -o - faithful.midi | lame -r - faithful.mp3
 	mv faithful.midi faithful-descant.kar
 	mv faithful-1.midi faithful-soprano.kar
 	mv faithful-2.midi faithful-alto.kar
@@ -106,6 +108,7 @@ joy: joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar
 
 joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar: joy.ly
 	lilypond joy.ly
+	timidity -Or -o - joy.midi | lame -r - joy.mp3
 	mv joy.midi joy-women.kar
 	mv joy-1.midi joy-tenor.kar
 	mv joy-2.midi joy-bass.kar
@@ -114,6 +117,7 @@ adam: AdamLayYbounden.pdf AdamLayYbounden.kar
 
 AdamLayYbounden.pdf AdamLayYbounden.kar: AdamLayYbounden.ly
 	lilypond AdamLayYbounden
+	timidity -Or -o - AdamLayYbounden.midi | lame -r - AdmaLayYbounden.mp3
 	mv AdamLayYbounden.midi AdamLayYbounden-sop.kar
 	mv AdamLayYbounden-1.midi AdamLayYbounden-alto.kar
 	mv AdamLayYbounden-2.midi AdamLayYbounden-ten.kar
@@ -123,6 +127,7 @@ wassail: wassail.pdf wassail.kar wassail-bass.kar
 
 wassail.pdf wassail.kar wassail-bass.kar: wassail.ly
 	lilypond wassail
+	timidity -Or -o - wassail.midi | lame -r - wassail.mp3
 	mv wassail.midi wassail.kar
 	mv wassail-1.midi wassail-bass.kar
 
@@ -130,6 +135,7 @@ infantholy: infantholy.pdf infantholy.kar
 
 infantholy.kar infantholy.pdf: infantholy.ly
 	lilypond infantholy
+	timidity -Or -o - infantholy.midi | lame -r - infantholy.mp3
 	mv infantholy.midi infantholy-sop.kar
 	mv infantholy-1.midi infantholy-alto.kar
 	mv infantholy-2.midi infantholy-tenor.kar
@@ -139,6 +145,7 @@ maria: maria.pdf maria.kar
 
 maria.kar maria.pdf: maria.ly
 	lilypond maria
+	timidity -Or -o - maria.midi | lame -r - maria.mp3
 	mv maria.midi maria-sopten.kar
 	mv maria-1.midi maria-altobass.kar
 
@@ -146,37 +153,50 @@ gotell: gotell.pdf gotell.kar
 
 gotell.kar gotell.pdf: gotell.ly
 	lilypond gotell
+	timidity -Or -o - gotell.midi | lame -r - gotell.mp3
 	mv gotell.midi gotell.kar
 
 gotell2: gotell2.pdf gotell2.kar
 
 gotell2.kar gotell2.pdf: gotell2.ly
 	lilypond gotell2
+	timidity -Or -o - gotell2.midi | lame -r - gotell2.mp3
 	mv gotell2.midi gotell2.kar
+	mv gotell2-1.midi gotell2-bass.kar
 
 jubilate: jubilate.pdf jubilate.kar
 
 jubilate.kar jubilate.pdf: jubilate.ly
 	lilypond jubilate
+	timidity -Or -o - jubilate.midi | lame -r - jubilate.mp3
 	mv jubilate.midi jubilate.kar
 
 belltoll: belltoll.pdf belltoll.kar
 
 belltoll.kar belltoll.pdf: belltoll.ly
 	lilypond belltoll
+	timidity -Or -o - belltoll.midi | lame -r - belltoll.mp3
 	mv belltoll.midi belltoll.kar
 
 bells: bells.pdf bells.kar
 
 bells.kar bells.pdf: bells.ly
 	lilypond bells
+	timidity -Or -o - bells.midi | lame -r - bells.mp3
 	mv bells.midi bells1.kar
 	mv bells-1.midi bells2.kar
 
 coming: coming.pdf coming.kar
 
+wenceslas: wenceslas.pdf wenceslas.kar
+
+camels: camels.pdf camels.kar
+
+gaudeamus: gaudeamus.pdf gaudeamus.kar
+
 coming.kar coming.pdf: coming.ly
 	lilypond coming
+	timidity -Or -o - coming.midi | lame -r - coming.mp3
 	mv coming.midi coming1.kar
 	mv coming-1.midi coming2.kar
 	mv coming-2.midi coming3.kar
