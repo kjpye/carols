@@ -5,11 +5,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key g \major
   \time 4/4
+  \tempo 4 = 100
 }
 
 sopMusic = \relative c' {
     \partial 8 b8^\mf
   \repeat volta 3 {
+    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurUp
     \slurDashed
@@ -26,7 +28,7 @@ sopMusic = \relative c' {
     b8 g4(g8) a4 fis
     \unset melismaBusyProperties
     e2. r4
-    \time 6/8 % \tempo 4 = 4.
+    \time 6/8 \tempo 4. = 100
     d'4^\mp d8 b8. c16 d8
     c8. b16 a8 b b a
     g4 g8 g4 e8
@@ -144,11 +146,16 @@ chorus = \lyricmode {
   Gent- ly rock- ing they ten- der- ly car- ried the Kings to Beth- le- hem.
 }
 
+Mchorus = \lyricmode {
+  "/Gent" "ly " "rock" "ing " "they " "ten" "der" "ly " "car" "ried " "the " "Kings " "to " "Beth" "le" "hem."
+  "/Gent" "ly " "rock" "ing " "they " "ten" "der" "ly " "car" "ried " "the " "Kings " "to " "Beth" "le" "hem."
+}
+
 Mfirstverse =\lyricmode {
-  "\The " "cam" "els " "that " "bore " "the " "Wise " "Men " "Three "
-  "/That " "star " "ry " "win" "ter " "night "
-  _ "/Fol" "lowed, " "sway" "ing " "si" "lent" "ly "
-  "/A " "heav'n" "ly " _ "sil" "ver " "light. "
+  "The " "cam" "els " "that " "bore " "the " "Wise " "Men " "Three "
+  "/That " star "ry " "win" "ter " "night "
+  "" "/Fol" "lowed, " "sway" "ing " "si" "lent" "ly "
+  "/A " "heav'n" "ly " "" "sil" "ver " "light. "
 }
 
 secondverse = \lyricmode {
@@ -162,8 +169,8 @@ secondverse = \lyricmode {
 Msecondverse = \lyricmode {
   "\They " car "ried " "the " "Kings " "through " "field " "and " "wood "
   "/Of " ced "ar, " "pine " "and " "fir, "
-  _ "/Bring" "ing " "gifts " "to " "One " "so " "good "
-  "/Of " frank in _ "cense " "and " "myrrh. "
+  "" "/Bring" "ing " "gifts " "to " "One " "so " "good "
+  "/Of " frank in "" "cense " "and " "myrrh. "
 }
 
 thirdverse = \lyricmode {
@@ -175,10 +182,10 @@ thirdverse = \lyricmode {
 }
 
 Mthirdverse = \lyricmode {
-  "\They " "knelt, " "_ " "be- " "side " "the " "new " "born " "Child "
-  "/While " "an- " "ges " "sang " "a- " "bove, "
-  "/And " "saw " "with- " "in " "the " "man- " "ger " "mild "
-  "/The " "prom- " "ise " "of " "peace " "and " "love. "
+  "\They " "knelt, " "" "be" "side " "the " "new " "born " "Child "
+  "/While " "an" "gels " "sang " "a" "bove, "
+  "/And " "saw " "with" "in " "the " "man" "ger " "mild "
+  "/The " "prom" "ise " "of " "peace " "and " "love. "
 }
 
 \book
@@ -239,9 +246,9 @@ Mthirdverse = \lyricmode {
 	\context Voice =
 	altos { \voiceTwo { \global \unfoldRepeats \altoMusic } }
       >>
-      \context Lyrics = firstverse { s1 }
-      \context Lyrics = secondverse { s1 }
-      \context Lyrics = thirdverse { s1 }
+%      \context Lyrics = firstverse { s1 }
+%      \context Lyrics = secondverse { s1 }
+%      \context Lyrics = thirdverse { s1 }
       \context Staff = tenors <<
         \set Staff.midiInstrument = #"oboe"
 	\clef bass
@@ -254,7 +261,11 @@ Mthirdverse = \lyricmode {
 	\context Voice =
 	basses { \voiceTwo {\global \unfoldRepeats \bassMusic } }
       >>
-      \context Lyrics = firstverse \lyricsto basses { \Mfirstverse \Msecondverse \Mthirdverse }
+      \context Lyrics = firstverse \lyricsto sopranos {
+	\Mfirstverse  \Mchorus
+	\Msecondverse \Mchorus
+	\Mthirdverse  \Mchorus
+      }
     >>
     
     \midi {
@@ -268,7 +279,7 @@ Mthirdverse = \lyricmode {
       }
       \context {
 	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
+%	tempoWholesPerMinute = #(ly:make-moment 80 4)
       }
     }
   }
