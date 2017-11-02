@@ -36,13 +36,14 @@ sopMusic = \relative c' {
     d'4^\pp d8 b8. c16 d8
     c8. b16 a8 b b a
     g4 g8 g4 e8
-    g4. b8
+    g2 r8 b
   }
 }
 
 altoMusic = \relative c' {
   \partial 8 b8
   \repeat volta 3 {
+    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurDown
     \slurDashed
@@ -59,7 +60,7 @@ altoMusic = \relative c' {
     g8 d4(d8) e4 e
     \unset melismaBusyProperties
     e2. r4
-    \time 6/8
+    \time 6/8 \tempo 4. = 100
     fis4 fis8 g8. fis16 g8
     fis8. g16 fis8 fis fis fis
     e4 e8 e4 d8
@@ -67,13 +68,14 @@ altoMusic = \relative c' {
     fis4 fis8 g8. fis16 g8
     fis8. g16 fis8 fis fis fis
     e4 e8 e4 d8
-    d4. b8
+    d2 r8 b
   }
 }
 
 tenorMusic = \relative c' {
     \partial 8 g8^\mf
   \repeat volta 3 {
+    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurUp
     \slurDashed
@@ -90,7 +92,7 @@ tenorMusic = \relative c' {
     d8 b4(b8) c4 d
     \unset melismaBusyProperties
     b2. r4
-    \time 6/8
+    \time 6/8 \tempo 4. = 100
     b4^\mp b8 b8. a16 b8
     c8. d16 e8 b b b
     b4 b8 b4 b8
@@ -98,13 +100,14 @@ tenorMusic = \relative c' {
     b4^\pp b8 b8. a16 b8
     c8. d16 e8 b b b
     b4 b8 b4 b8
-    b4. g8
+    b2 r8 g
   }
 }
 
 bassMusic = \relative c {
     \partial 8 e8
   \repeat volta 3 {
+    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurDown
     \slurDashed
@@ -121,7 +124,7 @@ bassMusic = \relative c {
     d8 d4(d8) d4 d
     \unset melismaBusyProperties
     e2. r4
-    \time 6/8
+    \time 6/8 \tempo 4. = 100
     b4 b8 e8. e16 e8
     e8. e16 e8 dis dis b
     e4 d8 c4 c8
@@ -129,7 +132,7 @@ bassMusic = \relative c {
     b,4 b8 e8. e16 e8
     e8. e16 e8 dis dis b
     e4 d8 c4 c8
-    g'4. e8
+    g'2 r8 e
   }
 }
 
@@ -152,7 +155,7 @@ Mchorus = \lyricmode {
 }
 
 Mfirstverse =\lyricmode {
-  "The " "cam" "els " "that " "bore " "the " "Wise " "Men " "Three "
+  "\The " "cam" "els " "that " "bore " "the " "Wise " "Men " "Three "
   "/That " star "ry " "win" "ter " "night "
   "" "/Fol" "lowed, " "sway" "ing " "si" "lent" "ly "
   "/A " "heav'n" "ly " "" "sil" "ver " "light. "
@@ -233,7 +236,7 @@ Mthirdverse = \lyricmode {
       }
     }
   }
-  \score {
+  \score { % Karaoke file
     <<
     % \context ChoirStaff <<
       \context Staff = sopranos <<
@@ -246,9 +249,6 @@ Mthirdverse = \lyricmode {
 	\context Voice =
 	altos { \voiceTwo { \global \unfoldRepeats \altoMusic } }
       >>
-%      \context Lyrics = firstverse { s1 }
-%      \context Lyrics = secondverse { s1 }
-%      \context Lyrics = thirdverse { s1 }
       \context Staff = tenors <<
         \set Staff.midiInstrument = #"oboe"
 	\clef bass
@@ -261,7 +261,7 @@ Mthirdverse = \lyricmode {
 	\context Voice =
 	basses { \voiceTwo {\global \unfoldRepeats \bassMusic } }
       >>
-      \context Lyrics = firstverse \lyricsto sopranos {
+      \context Lyrics = firstverse \lyricsto basses {
 	\Mfirstverse  \Mchorus
 	\Msecondverse \Mchorus
 	\Mthirdverse  \Mchorus
@@ -279,7 +279,90 @@ Mthirdverse = \lyricmode {
       }
       \context {
 	\Score
-%	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % Sopranos only
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \sopMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+      }
+    }
+  }
+  \score { % Altos only
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \altoMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+      }
+    }
+  }
+  \score { % Tenors only
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \tenorMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+      }
+    }
+  }
+  \score { % Basses only
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \bassMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
       }
     }
   }

@@ -190,7 +190,15 @@ coming: coming.pdf coming.kar
 
 wenceslas: wenceslas.pdf wenceslas.kar
 
-camels: camels.pdf camels.kar
+camels.pdf camels.kar camels.mp3 camels-sop.mp3 camels-alto.mp3 camels-tenor.mp3 camels-bass.mp3: camels.ly
+	lilypond camels
+	timidity -Or -o - camels.midi   | lame -r - camels.mp3
+	timidity -Or -o - camels-1.midi | lame -r - camels-sop.mp3
+	timidity -Or -o - camels-2.midi | lame -r - camels-alto.mp3
+	timidity -Or -o - camels-3.midi | lame -r - camels-tenor.mp3
+	timidity -Or -o - camels-4.midi | lame -r - camels-bass.mp3
+	mv camels.midi camels.kar
+	rm camels-[1234].midi
 
 gaudeamus: gaudeamus.pdf gaudeamus.kar
 
