@@ -194,7 +194,17 @@ bells.kar bells.pdf: bells.ly
 
 coming: coming.pdf coming.kar
 
-wenceslas: wenceslas.pdf wenceslas.kar
+wenceslas: wenceslas.pdf wenceslas.kar wenceslas.mp3 wenceslas-sop.mp3 wenceslas-alto.mp3 wenceslas-tenor.mp3 wenceslas-bass.mp3
+
+wenceslas.pdf wenceslas.kar wenceslas.mp3 wenceslas-sop.mp3 wenceslas-alto.mp3 wenceslas-tenor.mp3 wenceslas-bass.mp3: wenceslas.ly
+	lilypond wenceslas
+	timidity -Or -o - wenceslas.midi   | lame -r - wenceslas.mp3
+	timidity -Or -o - wenceslas-1.midi | lame -r - wenceslas-sop.mp3
+	timidity -Or -o - wenceslas-2.midi | lame -r - wenceslas-alto.mp3
+	timidity -Or -o - wenceslas-3.midi | lame -r - wenceslas-tenor.mp3
+	timidity -Or -o - wenceslas-4.midi | lame -r - wenceslas-bass.mp3
+	mv wenceslas.midi wenceslas.kar
+	rm wenceslas-[1234].midi
 
 camels: camels.pdf camels.kar camels.mp3 camels-sop.mp3 camels-alto.mp3 camels-tenor.mp3 camels-bass.mp3
 

@@ -5,6 +5,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key a \major
   \time 4/4
+  \tempo 4 = 140
 }
 
 sopMusic = \relative c'' {
@@ -214,7 +215,7 @@ Mfifthverse = \lyricmode {
       }
     }
   }
-  \score {
+  \score { % karaoke
     <<
     % \context ChoirStaff <<
       \context Staff = sopranos <<
@@ -256,7 +257,96 @@ Mfifthverse = \lyricmode {
       }
       \context {
 	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
+%	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % sopranos
+    <<
+      \context Staff = sopranos <<
+	\context Voice =
+	sopranos { \voiceOne { \global \unfoldRepeats \sopMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+%	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % altos
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \altoMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+%	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % tenors
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \tenorMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+%	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % basses
+    <<
+      \context Staff <<
+	\context Voice { \voiceOne { \global \unfoldRepeats \bassMusic } }
+      >>
+    >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+%	tempoWholesPerMinute = #(ly:make-moment 80 4)
       }
     }
   }
