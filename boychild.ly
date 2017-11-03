@@ -1,4 +1,4 @@
-\version "2.13.53"
+\version "2.18.2"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -56,7 +56,7 @@ harmony = \relative c' {
 }
 
 bells = \relative c' {
-  e'4 cis gis e
+  e'4 b gis e
 }
 
 boychild = {
@@ -313,6 +313,39 @@ Mfourthverse = \lyricmode {
 	  \lyricsto melody \Mmaryslyrics
         }
         \context Lyrics = firstverse \lyricsto ohmylord { \Mfirstverse \Msecondverse \Mthirdverse \Mfourthverse }
+      >>
+    }
+    \midi {
+    }
+  }
+  \score {
+    \unfoldRepeats {
+
+      \context ChoirStaff
+      <<
+	\context Staff = melody {
+	  \context Voice = melody <<
+	    { \voiceTwo << \transpose e f {\global \melody} >> }
+	  >>
+	  \context Voice =
+	  ohmylord { \voiceOne << \transpose e f \ohmylord >> }
+        }
+      >>
+    }
+    \midi {
+    }
+  }
+  \score {
+    \unfoldRepeats {
+
+      \context ChoirStaff
+      <<
+        \context Staff = all
+        {
+	  \context Voice = harmony <<
+	    { \voiceOne << \transpose e f {\global \harmony} >> }
+	  >>
+	}
       >>
     }
     \midi {

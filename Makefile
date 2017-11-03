@@ -3,7 +3,7 @@
 	timidity -Or -o - $*.midi | lame -r - $*.mp3
 	-mv $*.midi $*.kar
 
-carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas gotell2 belltoll jubilate camels gaudeamus
+carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas gotell2 belltoll jubilate camels gaudeamus camels
 
 shanties: blowthemandown southaustralia highbarbary drunkensailor
 
@@ -25,9 +25,15 @@ drunkensailor: drunkensailor.pdf drunkensailor.kar
 
 drunkensailor.kar drunkensailor.pdf: drunkensailor.ly
 
-boychild: boychild.pdf boychild.kar
+boychild: boychild.pdf boychild.kar boychild.mp3 boychild-melody.mp3 boychild-harmony.mp3
 
-boychild.kar boychild.pdf: boychild.ly
+boychild.kar boychild.pdf boychild.mp3 boychild-melody.mp3 boychild-harmony.mp3: boychild.ly
+	lilypond boychild.ly
+	timidity -Or -o - boychild.midi   | lame -r - boychild.mp3
+	timidity -Or -o - boychild-1.midi   | lame -r - boychild-melody.mp3
+	timidity -Or -o - boychild-2.midi   | lame -r - boychild-harmony.mp3
+	mv boychild.midi boychild.kar
+	rm boychild-[12].midi
 
 calypso: calypso.pdf
 
@@ -190,6 +196,8 @@ coming: coming.pdf coming.kar
 
 wenceslas: wenceslas.pdf wenceslas.kar
 
+camels: camels.pdf camels.kar camels.mp3 camels-sop.mp3 camels-alto.mp3 camels-tenor.mp3 camels-bass.mp3
+
 camels.pdf camels.kar camels.mp3 camels-sop.mp3 camels-alto.mp3 camels-tenor.mp3 camels-bass.mp3: camels.ly
 	lilypond camels
 	timidity -Or -o - camels.midi   | lame -r - camels.mp3
@@ -208,3 +216,10 @@ coming.kar coming.pdf: coming.ly
 	mv coming.midi coming1.kar
 	mv coming-1.midi coming2.kar
 	mv coming-2.midi coming3.kar
+
+
+
+
+
+
+
