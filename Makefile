@@ -79,9 +79,17 @@ royal: royal.pdf royal.kar
 
 royal.kar royal.pdf: royal.ly
 
-silentnight: silentnight.pdf silentnight.kar
+silentnight: silentnight.pdf silentnight.kar silentnight.mp3 silentnight-sop.mp3 silentnight-alto.mp3 silentnight-tenor.mp3 silentnight-bass.mp3
 
-silentnight.kar silentnight.pdf: silentnight.ly
+silentnight.pdf silentnight.kar silentnight.mp3 silentnight-sop.mp3 silentnight-alto.mp3 silentnight-tenor.mp3 silentnight-bass.mp3: silentnight.ly
+	lilypond silentnight
+	timidity -Or -o - silentnight.midi   | lame -r - silentnight.mp3
+	timidity -Or -o - silentnight-1.midi | lame -r - silentnight-sop.mp3
+	timidity -Or -o - silentnight-2.midi | lame -r - silentnight-alto.mp3
+	timidity -Or -o - silentnight-3.midi | lame -r - silentnight-tenor.mp3
+	timidity -Or -o - silentnight-4.midi | lame -r - silentnight-bass.mp3
+	mv silentnight.midi silentnight.kar
+	rm silentnight-[1234].midi
 
 shepherds: shepherds.pdf
 

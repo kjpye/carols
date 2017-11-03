@@ -5,6 +5,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key bes \major
   \time 6/8
+  \tempo 4. = 55
 }
 
 sopMusic = \relative c' {
@@ -156,7 +157,7 @@ Mthirdverse = \lyricmode {
       }
     }
   }
-  \score {
+  \score { % karaoke
     <<
     % \context ChoirStaff <<
       \context Staff = sopranos <<
@@ -186,6 +187,86 @@ Mthirdverse = \lyricmode {
       >>
       \context Lyrics = firstverse \lyricsto basses { \Mfirstverse \Msecondverse \Mthirdverse }
     >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % sopranos
+      \context Staff <<
+	\context Voice { \voiceOne { \global R2. \unfoldRepeats \sopMusicLoud } }
+      >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % altos
+      \context Staff <<
+	\context Voice { \voiceOne { \global R2. \unfoldRepeats \altoMusic } }
+      >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % tenors
+      \context Staff <<
+	\context Voice { \voiceOne { \global R2. \unfoldRepeats \tenorMusic } }
+      >>
+    
+    \midi {
+      \context {
+	\Staff
+	\remove "Staff_performer"
+      }
+      \context {
+	\Voice
+	\consists "Staff_performer"
+      }
+      \context {
+	\Score
+	tempoWholesPerMinute = #(ly:make-moment 80 4)
+      }
+    }
+  }
+  \score { % basses
+      \context Staff <<
+	\context Voice { \voiceOne { \global R2. \unfoldRepeats \bassMusic } }
+      >>
     
     \midi {
       \context {
