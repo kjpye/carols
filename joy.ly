@@ -5,19 +5,18 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key d \major
   \time 2/4
-  \tempo 2 = 100
+  \tempo 2 = 72
 }
 
 firstlinesop = \relative c' {
   d'4 cis8. b16 a4. g8 fis4 e d4. % Should be rall after third note
-  a'8 b4. b8 cis4. cis8 d2(d4.)
+  a'8 b4. b8 cis4. cis8 d2 ~ d4.
 }
 
 sopMusic = \relative c' {
   \repeat volta 3 {
-    d'4 cis8. b16 a4. g8 fis4 e d4.
-    a'8 b4. b8 cis4. cis8 d2(d4.)
-    d8 \break d(cis) b(a) a8.(g16 fis8) d'8 d(cis) b(a) a8.(g16 fis8)
+    \firstlinesop
+    d'8 \break d(cis) b(a) a8.(g16 fis8) d'8 d(cis) b(a) a8.(g16 fis8)
     fis8 fis fis fis fis16(g) a4.
     g16(fis) \break e8 e e e16(fis) g4.
     fis16(e) d8(d'4) b8 a8.( g16 fis8) g fis4 e d2 \break
@@ -33,7 +32,7 @@ altoMusic = \relative c' {
   \repeat volta 3 {
     \firstlinealto
     fis8 fis(a) g(fis) fis8.(e16 d8) fis8 fis(a) g(fis) fis8.(e16 d8)
-    d8 d d d d16(e) fis4. e16(d) cis8 cis cis cis16(d) ees4.
+    d8 d d d d16(e) fis4. e16(d) cis8 cis cis cis16(d) e4.
     d16(cis) d8(fis4) g8 fis8.(e16 d8) e8 d4 cis d2
   }
 }
@@ -53,7 +52,7 @@ tenorMusic = \relative c' {
 
 firstlinebass = \relative c {
     d4 d8. d16 d4. g,8 a4 a d4.
-    fis8 g4. g8 a4. a8 d,2(d4.)
+    fis8 g4. g8 a4. a8 d,2 ~ d4.
 }
 
 bassMusic = \relative c {
@@ -287,7 +286,7 @@ MfourthverseE = \lyricmode {
 				% can be closer to the staff
 	\Staff \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
         }
-	\context {\RemoveEmptyStaffContext
+	\context { % \RemoveEmptyStaffContext
 	\override VerticalAxisGroup #'remove-first = ##t }
     }
   }
@@ -295,67 +294,59 @@ MfourthverseE = \lyricmode {
     <<
       \context ChoirStaff <<
 	\context Staff = women <<
-          \set Staff.midiInstrument = #"flute"
+%          \set Staff.midiInstrument = #"flute"
 	  \context Voice =
-	  sopranos { \voiceOne {\global R2 \unfoldRepeats \sopMusic } }
-          \set Staff.midiInstrument = #"clarinet"
+	  sopranos { \voiceOne {\global R2 \unfoldRepeats \sopMusic \firstlinesop } }
+%          \set Staff.midiInstrument = #"clarinet"
 	  \context Voice =
-	  altos { \voiceTwo {\global R2 \unfoldRepeats \altoMusic} }
+	  altos { \voiceTwo {\global R2 \unfoldRepeats \altoMusic \firstlinealto} }
 	>>
 	\context Lyrics = firstverse { s1 }
 	\context Staff = men {
 	  <<
 	    \clef bass
-          \set Staff.midiInstrument = #"oboe"
+%          \set Staff.midiInstrument = #"oboe"
 	    \context Voice =
-	    tenors { \voiceOne {\global R2 \unfoldRepeats \tenorMusic} }
-          \set Staff.midiInstrument = #"bassoon"
+	    tenors { \voiceOne {\global R2 \unfoldRepeats \tenorMusic \firstlinetenor} }
+%          \set Staff.midiInstrument = #"bassoon"
 	    \context Voice =
-	    basses { \voiceTwo {\global R2 \unfoldRepeats \bassMusic} }
+	    basses { \voiceTwo {\global R2 \unfoldRepeats \bassMusic \firstlinebass} }
 	  >>
 	}
 	\context Lyrics = firstverse \lyricsto sopranos {
-	  \MfirstverseA \MfirstverseB \MfirstverseD
+	  \MfirstverseA  \MfirstverseB  \MfirstverseD
 	  \MsecondverseA \MsecondverseB \MsecondverseD
-	  \MfourthverseA \MfourthverseB \MfourthverseD}
+	 %\MthirdverseA  \MthirdverseB  \MthirdverseD
+	  \MfourthverseA \MfourthverseB \MfourthverseD
+	 %\MfifthverseA  \MfifthverseB  \MfifthverseD
+	 %\MsixthverseA  \MsixthverseB  \MsixthverseD
+          \MfirstverseA
+	}
       >>
     >>
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 100 4)
-      }
-    }
+    \midi { }
   }
   \score {
     <<
       \context ChoirStaff <<
 	\context Staff = women <<
-          \set Staff.midiInstrument = #"flute"
+%          \set Staff.midiInstrument = #"flute"
 	  \context Voice =
-	  sopranos { \voiceOne {\global R2 \unfoldRepeats \sopMusic } }
-          \set Staff.midiInstrument = #"clarinet"
+	  sopranos { \voiceOne {\global R2 \unfoldRepeats \sopMusic \firstlinesop} }
+%          \set Staff.midiInstrument = #"clarinet"
 	  \context Voice =
-	  altos { \voiceTwo {\global R2 \unfoldRepeats \altoMusic} }
+	  altos { \voiceTwo {\global R2 \unfoldRepeats \altoMusic \firstlinealto} }
 	>>
 	\context Lyrics = firstverse { s1 }
 	\context Staff = men {
 	  <<
 	    \clef bass
-          \set Staff.midiInstrument = #"oboe"
+%          \set Staff.midiInstrument = #"oboe"
 	    \context Voice = tenors
-	    { \voiceOne {\global R2 \unfoldRepeats \tenorMusic} }
-          \set Staff.midiInstrument = #"bassoon"
+	    { \voiceOne {\global R2 \unfoldRepeats \tenorMusic \firstlinetenor} }
+%          \set Staff.midiInstrument = #"bassoon"
 	    \context Voice = basses
-	    { \voiceTwo {\global R2 \unfoldRepeats \bassMusic} }
+	    { \voiceTwo {\global R2 \unfoldRepeats \bassMusic \firstlinebass} }
 	  >>
 	}
 	\context Lyrics = firstverse \lyricsto tenors {
@@ -364,42 +355,29 @@ MfourthverseE = \lyricmode {
 	  \MfourthverseA \MfourthverseC \MfourthverseD}
       >>
     >>
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 100 4)
-      }
-    }
+    \midi { }
   }
   \score {
     <<
       \context ChoirStaff <<
 	\context Staff = women <<
-          \set Staff.midiInstrument = #"flute"
+%          \set Staff.midiInstrument = #"flute"
 	  \context Voice =
-	  sopranos { \voiceOne {\global R2 \unfoldRepeats \sopMusic } }
-          \set Staff.midiInstrument = #"clarinet"
+	  sopranos { \voiceOne {\global R2 \unfoldRepeats \sopMusic \firstlinesop } }
+%          \set Staff.midiInstrument = #"clarinet"
 	  \context Voice =
-	  altos { \voiceTwo {\global R2 \unfoldRepeats \altoMusic} }
+	  altos { \voiceTwo {\global R2 \unfoldRepeats \altoMusic \firstlinealto} }
 	>>
 	\context Lyrics = firstverse { s1 }
 	\context Staff = men {
 	  <<
 	    \clef bass
-          \set Staff.midiInstrument = #"oboe"
+%          \set Staff.midiInstrument = #"oboe"
 	    \context Voice = tenors
-	    { \voiceOne {\global R2 \unfoldRepeats \tenorMusic} }
-          \set Staff.midiInstrument = #"bassoon"
+	    { \voiceOne {\global R2 \unfoldRepeats \tenorMusic \firstlinetenor} }
+%          \set Staff.midiInstrument = #"bassoon"
 	    \context Voice = basses
-	    { \voiceTwo {\global R2 \unfoldRepeats \bassMusic} }
+	    { \voiceTwo {\global R2 \unfoldRepeats \bassMusic \firstlinebass} }
 	  >>
 	}
 	\context Lyrics = firstverse \lyricsto basses {
@@ -408,48 +386,27 @@ MfourthverseE = \lyricmode {
 	  \MfourthverseA \MfourthverseC \MfourthverseE}
       >>
     >>
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 100 4)
-      }
-    }
+    \midi { }
   }
   \score { % soprano MP3
-    \context Staff <<
-      \context Voice { \global R2 \unfoldRepeats \sopMusic }
-    >>
-    \midi {
-    }
+    \context Staff
+      \context Voice { \global R2 \unfoldRepeats \sopMusic \firstlinesop}
+    \midi { }
   }
   \score { % alto MP3
-    \context Staff <<
-      \context Voice { \global R2 \unfoldRepeats \altoMusic }
-    >>
-    \midi {
-    }
+    \context Staff
+      \context Voice { \global R2 \unfoldRepeats \altoMusic \firstlinealto}
+    \midi { }
   }
   \score { % tenor MP3
-    \context Staff  <<
-      \context Voice { \global R2 \unfoldRepeats \tenorMusic }
-    >>
-    \midi {
-    }
+    \context Staff
+      \context Voice { \global R2 \unfoldRepeats \tenorMusic \firstlinetenor}
+    \midi { }
   }
   \score { % bass MP3
-    \context Staff <<
-      \context Voice { \global R2 \unfoldRepeats \bassMusic }
-    >>
-    \midi {
-    }
+    \context Staff
+      \context Voice { \global R2 \unfoldRepeats \bassMusic \firstlinebass}
+    \midi { }
   }
 }
 
