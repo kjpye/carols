@@ -297,13 +297,13 @@ Mfourthverse = \lyricmode {
         \context Staff = all
         {
 	  \context Voice = harmony <<
-	    \set Staff.midiInstrument = #"flute"
+%	    \set Staff.midiInstrument = #"flute"
 	    { \voiceOne << \transpose e f {\global \harmony} >> }
 	  >>
 	}
 	\context Staff = melody {
 	  \context Voice = melody <<
-	    \set Staff.midiInstrument = #"clarinet"
+%	    \set Staff.midiInstrument = #"clarinet"
 	    { \voiceTwo << \transpose e f {\global \melody} >> }
 	  >>
 	  \context Voice =
@@ -318,37 +318,29 @@ Mfourthverse = \lyricmode {
     \midi {
     }
   }
-  \score {
+  \score { % melody
     \unfoldRepeats {
-
       \context ChoirStaff
       <<
-	\context Staff = melody {
-	  \context Voice = melody <<
-	    { \voiceTwo << \transpose e f {\global \melody} >> }
-	  >>
-	  \context Voice =
-	  ohmylord { \voiceOne << \transpose e f \ohmylord >> }
+	\context Staff {
+	  \context Voice { \transpose e f {\global \melody} }
+	  \context Voice { \transpose e f \ohmylord }
         }
       >>
     }
-    \midi {
-    }
+    \midi { }
   }
-  \score {
+  \score { % harmony
     \unfoldRepeats {
-
       \context ChoirStaff
       <<
-        \context Staff = all
+        \context Staff
         {
-	  \context Voice = harmony <<
-	    { \voiceOne << \transpose e f {\global \harmony} >> }
-	  >>
+	  \context Voice { \transpose e f {\global \harmony} }
+	  \context Voice { \transpose e f \ohmylord }
 	}
       >>
     }
-    \midi {
-    }
+    \midi { }
   }
 }

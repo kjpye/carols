@@ -118,14 +118,19 @@ faithful.pdf faithful-descant.kar faithful-soprano.kar faithful-alto.kar faithfu
 	mv faithful-3.midi faithful-tenor.kar
 	mv faithful-4.midi faithful-bass.kar
 
-joy: joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar
+joy: joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar joy.mp3 joy-sop.mp3 joy-alto.mp3 joy-tenor.mp3 joy-bass.mp3
 
-joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar: joy.ly
+joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar joy.mp3 joy-sop.mp3 joy-alto.mp3 joy-tenor.mp3 joy-bass.mp3: joy.ly
 	lilypond joy.ly
-	timidity -Or -o - joy.midi | lame -r - joy.mp3
+	timidity -Or -o - joy.midi   | lame -r - joy.mp3
+	timidity -Or -o - joy-3.midi | lame -r - joy-sop.mp3
+	timidity -Or -o - joy-4.midi | lame -r - joy-alto.mp3
+	timidity -Or -o - joy-5.midi | lame -r - joy-tenor.mp3
+	timidity -Or -o - joy-6.midi | lame -r - joy-bass.mp3
 	mv joy.midi joy-women.kar
 	mv joy-1.midi joy-tenor.kar
 	mv joy-2.midi joy-bass.kar
+	rm joy-[3456].midi
 
 adam: AdamLayYbounden.pdf AdamLayYbounden.kar
 
@@ -170,13 +175,16 @@ gotell.kar gotell.pdf: gotell.ly
 	timidity -Or -o - gotell.midi | lame -r - gotell.mp3
 	mv gotell.midi gotell.kar
 
-gotell2: gotell2.pdf gotell2.kar
+gotell2: gotell2.pdf gotell2.kar gotell2-bass.kar gotell2.mp3 gotell2-melody.mp3 gotell2-bass.mp3
 
-gotell2.kar gotell2.pdf: gotell2.ly
+gotell2.pdf gotell2.kar gotell2-bass.kar gotell2.mp3 gotell2-melody.mp3 gotell2-bass.mp3: gotell2.ly
 	lilypond gotell2
 	timidity -Or -o - gotell2.midi | lame -r - gotell2.mp3
+	timidity -Or -o - gotell2-2.midi | lame -r - gotell2-melody.mp3
+	timidity -Or -o - gotell2-3.midi | lame -r - gotell2-bass.mp3
 	mv gotell2.midi gotell2.kar
 	mv gotell2-1.midi gotell2-bass.kar
+	rm gotell2-[23].midi
 
 jubilate: jubilate.pdf jubilate.kar
 

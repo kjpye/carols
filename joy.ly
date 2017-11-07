@@ -5,6 +5,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key d \major
   \time 2/4
+  \tempo 2 = 100
 }
 
 firstlinesop = \relative c' {
@@ -422,6 +423,33 @@ MfourthverseE = \lyricmode {
       }
     }
   }
+  \score { % soprano MP3
+    \context Staff <<
+      \context Voice { \global R2 \unfoldRepeats \sopMusic }
+    >>
+    \midi {
+    }
+  }
+  \score { % alto MP3
+    \context Staff <<
+      \context Voice { \global R2 \unfoldRepeats \altoMusic }
+    >>
+    \midi {
+    }
+  }
+  \score { % tenor MP3
+    \context Staff  <<
+      \context Voice { \global R2 \unfoldRepeats \tenorMusic }
+    >>
+    \midi {
+    }
+  }
+  \score { % bass MP3
+    \context Staff <<
+      \context Voice { \global R2 \unfoldRepeats \bassMusic }
+    >>
+    \midi {
+    }
+  }
 }
-  
-  
+

@@ -51,32 +51,43 @@ drumdouble = \drummode {
   }
 }
 
-melody = \relative c' {
+melodyA = \relative c' {
   r1
   r1
-  \repeat volta 3 {
-    %\repeat volta 2 {
+}
+
+melodyB = \relative c' {
       fis2 fis8 e d b
       a2 d
-      fis8 fis(fis) e fis4. d8
+      fis8 fis~fis e fis4. d8
       fis4 a b8(a fis e)
       fis2 fis8 e d b
       a2 d4 g
       fis4. d8 e4. e8
       d2. r8 d^\markup{FINE}
-    %}
+}
+
+melodyC = \relative c' {
     fis8 a a b a fis4 d8
     e8 d d e fis(a4) d,8
     fis8 a a b a fis4 d8
     e8 d d b a2
+}
+
+melody = \relative c' {
+  \melodyA
+  \repeat volta 3 {
+    \melodyB
+    \melodyC
   }
 }
 
-melodyBass = \relative c {
+melodyBassA = \relative c {
   d4(b8 a) r a b a %1
   cis4(b8 a~a2)
-  \repeat volta 3 {
-    %\repeat volta 2 {
+}
+
+melodyBassB = \relative c {
       d4^\markup{\musicglyph #"scripts.segno"}( b8 a) r a b a
       cis4(b8 a~a2)
       d4(b8 a) r a b a %5
@@ -85,11 +96,20 @@ melodyBass = \relative c {
       d4(b8 a~a4)b
       d4. a8 cis4. cis8
       d4(cis b a) \bar "||" %10
-    %}
+}
+
+melodyBassC = \relative c {
     d4(cis b a)
     d4(cis b a)
     d4(cis b a)
     cis4(b a2^\markup{D.S. al FINE})
+}
+
+melodyBass = \relative c {
+  \melodyBassA
+  \repeat volta 3 {
+    \melodyBassB
+    \melodyBassC
   }
   %gis2^\markup{\musicglyph #"scripts.segno"} gis8 fis e cis
   %e2.^\fermata^\markup{D.S. al FINE}
@@ -204,10 +224,6 @@ Mbasswords = \lyricmode {
 {
   \score { % this version for the printed page
     <<
-%      \new ChordNames {
-%	\set chordChanges = ##t
-%        \guitar
-%      }
 	\context Staff = melody <<
 	  \context Voice =
 	  sopranos { \set midiInstrument = #"clarinet"
@@ -218,7 +234,7 @@ Mbasswords = \lyricmode {
 	\context Lyrics = thirdverse { s1 }
 	\context Staff = bass <<
 	  \clef bass
-          \context Voice = acc  { \voiceTwo \global \accBass }
+          \context Voice = acc  { \voiceOne \global \accBass }
 	  \context Voice = bass { \voiceTwo \global \melodyBass }
 	>>
         \context Lyrics = basswords { s1 }
@@ -230,19 +246,30 @@ Mbasswords = \lyricmode {
     \layout {
     }
   }
-  \score { % this version for the midi output
+  \score { % this version for the karaoke output
     <<
 	\context Staff = melody <<
 	  \context Voice =
 	  sopranos { \set midiInstrument = #"clarinet"
-		     \oneVoice { \global \unfoldRepeats \melody \melodyBass } }
+		     \oneVoice { \global \melodyA \melodyB \melodyC
+                                                  \melodyB \melodyC
+                                                  \melodyB \melodyC
+                                                  \melodyB
+                               }
+                   }
 	>>
 	\context Lyrics = firstverse { s1 }
         \context Staff = bass <<
           \clef bass
-          \context Voice = bass { \set midiInstrument = #"bassoon"
-                                  \global \unfoldRepeats \accBass \accBass
-                                }
+          \context Voice = bass <<
+            { \global \unfoldRepeats \accBass }
+            { \global { \melodyBassA \melodyBassB \melodyBassC
+                                     \melodyBassB \melodyBassC
+                                     \melodyBassB \melodyBassC
+                                     \melodyBassB
+                      }
+            }
+          >>
         >>
         \context Lyrics = firstverse \lyricsto sopranos { \Mrefrain
                                                           \Mfirstverse
@@ -254,38 +281,73 @@ Mbasswords = \lyricmode {
                                                         }
       \new DrumStaff
       <<
-        \unfoldRepeats \drum
+        \unfoldRepeats \drumdouble
       >>
     >>
     \midi {
     }
-%    \layout {}
   }
 
-  \score { % this version for the midi output (bass)
+  \score { % this version for the bass karaoke
     <<
 	\context Staff = melody <<
 	  \context Voice =
 	  sopranos { \set midiInstrument = #"clarinet"
-		     \oneVoice { \global \unfoldRepeats \melody \melodyBass } }
+		     \oneVoice { \global \melodyA \melodyB \melodyC
+                                                  \melodyB \melodyC
+                                                  \melodyB \melodyC
+                                                  \melodyB
+                               }
+                   }
 	>>
 	\context Lyrics = firstverse { s1 }
         \context Staff = bass <<
           \clef bass
-          \context Voice = bass { \global \unfoldRepeats \accBass \accBass }
+          \context Voice = bass <<
+            { \global \unfoldRepeats \accBass }
+            { \global \melodyBassA \melodyBassB \melodyBassC
+                                   \melodyBassB \melodyBassC
+                                   \melodyBassB \melodyBassC
+                                   \melodyBassB
+            }
+          >>
         >>
-        \context Lyrics = firstverse \lyricsto sopranos { \Mbassintro
-                                                          \Mbassrefrain
-                                                          \Mbasswords
-                                                          \Mbassrefrain
-                                                          \Mbasswords
-                                                          \Mbassrefrain
-                                                          \Mbasswords
-                                                          \Mbassrefrain
-                                                        }
+        \context Lyrics = firstverse \lyricsto bass { \Mbassintro
+                                                      \Mbassrefrain
+                                                      \Mbasswords
+                                                      \Mbassrefrain
+                                                      \Mbasswords
+                                                      \Mbassrefrain
+                                                      \Mbasswords
+                                                      \Mbassrefrain
+                                                    }
     >>
     \midi {
     }
-%    \layout {}
+  }
+  \score { % melody mp3
+	\context Staff <<
+	  \context Voice
+		     \oneVoice { \global \melodyA \melodyB \melodyC
+                                                  \melodyB \melodyC
+                                                  \melodyB \melodyC
+                                                  \melodyB
+                               }
+	>>
+    \midi {
+    }
+  }
+
+  \score { % this version for the bass mp3
+    \context Staff = bass <<
+      \clef bass
+      \context Voice = bass { \global \melodyBassA \melodyBassB \melodyBassC
+                                                   \melodyBassB \melodyBassC
+                                                   \melodyBassB \melodyBassC
+                                                   \melodyBassB
+                            }
+    >>
+    \midi {
+    }
   }
 }

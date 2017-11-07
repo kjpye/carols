@@ -5,21 +5,35 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key g \major
   \time 4/4
-  \tempo 4 = 100
+}
+
+tempoTrack = {
+  \partial 8 s8^\mf
+  \repeat volta 3 {
+    \tempo 4=100
+    s4 s4 s2
+    s1 s1 s1 s1 s1 s1 s1
+    \time 6/8 \tempo 4. = 100
+    s4^\mp s2
+    s2. s2. s2.
+    s4^\pp s2
+    s2. s2.
+  }
+  \alternative {{s2 s8 s8^\mf} {s2.}}
+  \bar "||"
 }
 
 sopMusic = \relative c' {
-    \partial 8 b8^\mf
+    \partial 8 b8
   \repeat volta 3 {
-    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurUp
     \slurDashed
     e8(e4) e8 fis4 fis
-    \unset melismaBusyProperties
     g4 fis e d
     e8 e4. fis4 d
-    b2. b4
+    b2.(b4)
+    \unset melismaBusyProperties
     e4. e8 fis4 fis
     g4 a b c
     \set melismaBusyProperties = #'()
@@ -28,30 +42,28 @@ sopMusic = \relative c' {
     b8 g4(g8) a4 fis
     \unset melismaBusyProperties
     e2. r4
-    \time 6/8 \tempo 4. = 100
-    d'4^\mp d8 b8. c16 d8
+    d'4 d8 b8. c16 d8
     c8. b16 a8 b b a
     g4 g8 g4 e8
     g4. r
-    d'4^\pp d8 b8. c16 d8
+    d'4 d8 b8. c16 d8
     c8. b16 a8 b b a
     g4 g8 g4 e8
-    g2 r8 b
   }
+  \alternative {{g2 r8 b} {g2 r4}}
 }
 
 altoMusic = \relative c' {
   \partial 8 b8
   \repeat volta 3 {
-    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurDown
     \slurDashed
     b8(b4) b8 d4 d
-    \unset melismaBusyProperties
     e4 d c b
     b8 b4. d4 d
-    b2. b4
+    b2.(b4)
+    \unset melismaBusyProperties
     b4. b8 d4 d
     e4 e d g
     \set melismaBusyProperties = #'()
@@ -60,7 +72,6 @@ altoMusic = \relative c' {
     g8 d4(d8) e4 e
     \unset melismaBusyProperties
     e2. r4
-    \time 6/8 \tempo 4. = 100
     fis4 fis8 g8. fis16 g8
     fis8. g16 fis8 fis fis fis
     e4 e8 e4 d8
@@ -68,22 +79,21 @@ altoMusic = \relative c' {
     fis4 fis8 g8. fis16 g8
     fis8. g16 fis8 fis fis fis
     e4 e8 e4 d8
-    d2 r8 b
   }
+  \alternative {{d2 r8 b} {d2 r4}}
 }
 
 tenorMusic = \relative c' {
-    \partial 8 g8^\mf
+    \partial 8 g8
   \repeat volta 3 {
-    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurUp
     \slurDashed
     g8(g4) g8 a4 a
-    \unset melismaBusyProperties
     b4 g a fis
     g8 g4. a4 fis
-    g2. g4
+    g2.(g4)
+    \unset melismaBusyProperties
     g4. g8 a4 a
     b4 c b c
     \set melismaBusyProperties = #'()
@@ -92,30 +102,28 @@ tenorMusic = \relative c' {
     d8 b4(b8) c4 d
     \unset melismaBusyProperties
     b2. r4
-    \time 6/8 \tempo 4. = 100
-    b4^\mp b8 b8. a16 b8
+    b4 b8 b8. a16 b8
     c8. d16 e8 b b b
     b4 b8 b4 b8
     b4. r
-    b4^\pp b8 b8. a16 b8
+    b4 b8 b8. a16 b8
     c8. d16 e8 b b b
     b4 b8 b4 b8
-    b2 r8 g
   }
+  \alternative {{b2 r8 g} {b2 r4}}
 }
 
 bassMusic = \relative c {
     \partial 8 e8
   \repeat volta 3 {
-    \tempo 4 = 100
     \set melismaBusyProperties = #'()
     \slurDown
     \slurDashed
     e8(e4) e8 d4 d
-    \unset melismaBusyProperties
     c4 c a b
     e8 c4. b4 b
-    c2. e4
+    c2.(e4)
+    \unset melismaBusyProperties
     e4. e8 d4 d
     c4 c g' e
     \set melismaBusyProperties = #'()
@@ -124,7 +132,6 @@ bassMusic = \relative c {
     d8 d4(d8) d4 d
     \unset melismaBusyProperties
     e2. r4
-    \time 6/8 \tempo 4. = 100
     b4 b8 e8. e16 e8
     e8. e16 e8 dis dis b
     e4 d8 c4 c8
@@ -132,8 +139,8 @@ bassMusic = \relative c {
     b,4 b8 e8. e16 e8
     e8. e16 e8 dis dis b
     e4 d8 c4 c8
-    g'2 r8 e
   }
+  \alternative {{g'2 r8 e} {g2 r4}}
 }
 
 firstverse = \lyricmode {
@@ -147,6 +154,8 @@ firstverse = \lyricmode {
 chorus = \lyricmode {
   Gent- ly rock- ing they ten- der- ly car- ried the Kings to Beth- le- hem.
   Gent- ly rock- ing they ten- der- ly car- ried the Kings to Beth- le- hem.
+  They
+  hem.
 }
 
 Mchorus = \lyricmode {
@@ -202,6 +211,7 @@ Mthirdverse = \lyricmode {
   \score {
     \context ChoirStaff <<
       \context Staff = women <<
+        \context Voice { \tempoTrack }
 	\context Voice =
 	sopranos { \voiceOne { \global \sopMusic } }
 	\context Voice =
@@ -239,24 +249,25 @@ Mthirdverse = \lyricmode {
   \score { % Karaoke file
     <<
     % \context ChoirStaff <<
+      \context Voice { \tempoTrack }
       \context Staff = sopranos <<
-        \set Staff.midiInstrument = #"flute"
+%        \set Staff.midiInstrument = #"flute"
 	\context Voice =
 	sopranos { \voiceOne { \global \unfoldRepeats \sopMusic } }
       >>
       \context Staff = altos <<
-        \set Staff.midiInstrument = #"clarinet"
+%        \set Staff.midiInstrument = #"clarinet"
 	\context Voice =
 	altos { \voiceTwo { \global \unfoldRepeats \altoMusic } }
       >>
       \context Staff = tenors <<
-        \set Staff.midiInstrument = #"oboe"
+%        \set Staff.midiInstrument = #"oboe"
 	\clef bass
 	\context Voice =
 	tenors { \voiceOne {\global \unfoldRepeats \tenorMusic } }
       >>
       \context Staff = basses <<
-        \set Staff.midiInstrument = #"bassoon"
+%        \set Staff.midiInstrument = #"bassoon"
 	\clef bass
 	\context Voice =
 	basses { \voiceTwo {\global \unfoldRepeats \bassMusic } }
@@ -268,102 +279,46 @@ Mthirdverse = \lyricmode {
       }
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-      }
-    }
+    \midi { }
   }
   \score { % Sopranos only
     <<
       \context Staff <<
+        \context Voice { \tempoTrack }
 	\context Voice { \voiceOne { \global \unfoldRepeats \sopMusic } }
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-      }
-    }
+    \midi { }
   }
   \score { % Altos only
     <<
       \context Staff <<
+        \context Voice { \tempoTrack }
 	\context Voice { \voiceOne { \global \unfoldRepeats \altoMusic } }
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-      }
-    }
+    \midi { }
   }
   \score { % Tenors only
     <<
       \context Staff <<
+        \context Voice { \tempoTrack }
 	\context Voice { \voiceOne { \global \unfoldRepeats \tenorMusic } }
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-      }
-    }
+    \midi { }
   }
   \score { % Basses only
     <<
       \context Staff <<
-	\context Voice { \voiceOne { \global \unfoldRepeats \bassMusic } }
+        \context Voice { \tempoTrack }
+	\context Voice { << \tempoTrack {\global \unfoldRepeats \bassMusic } >> }
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-      }
-    }
+    \midi { }
   }
 }
