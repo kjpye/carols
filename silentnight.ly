@@ -48,7 +48,7 @@ tenorMusic = \relative c' {
     bes4 bes8 ees4 bes8 bes8. bes16 bes8 f4.
     ees4 bes'8 ees8. ees16 bes8 bes8. bes16 bes8 f4.
     a4 a8 a8. a16 f8 f4.(bes4.)
-    bes4 f8 f8. f16 e8 ees4. r4.
+    bes4 f8 f8. f16 ees8 d4. r4.
   }
 }
 
@@ -161,12 +161,12 @@ Mthirdverse = \lyricmode {
     <<
     % \context ChoirStaff <<
       \context Staff = sopranos <<
-        \set Staff.midiInstrument = #"flute"
+%        \set Staff.midiInstrument = #"flute"
 	\context Voice =
 	sopranos { \voiceOne { \global R2. \unfoldRepeats \sopMusicLoud } }
       >>
       \context Staff = altos <<
-        \set Staff.midiInstrument = #"clarinet"
+%        \set Staff.midiInstrument = #"clarinet"
 	\context Voice =
 	altos { \voiceTwo { \global R2. \unfoldRepeats \altoMusic } }
       >>
@@ -174,13 +174,13 @@ Mthirdverse = \lyricmode {
       \context Lyrics = secondverse { s1 }
       \context Lyrics = thirdverse { s1 }
       \context Staff = tenors <<
-        \set Staff.midiInstrument = #"oboe"
+%        \set Staff.midiInstrument = #"oboe"
 	\clef bass
 	\context Voice =
 	tenors { \voiceOne {\global R2. \unfoldRepeats \tenorMusic } }
       >>
       \context Staff = basses <<
-        \set Staff.midiInstrument = #"bassoon"
+%        \set Staff.midiInstrument = #"bassoon"
 	\clef bass
 	\context Voice =
 	basses { \voiceTwo {\global R2. \unfoldRepeats \bassMusic } }
@@ -208,79 +208,27 @@ Mthirdverse = \lyricmode {
 	\context Voice { \voiceOne { \global R2. \unfoldRepeats \sopMusicLoud } }
       >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % altos
       \context Staff <<
 	\context Voice { \voiceOne { \global R2. \unfoldRepeats \altoMusic } }
       >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % tenors
       \context Staff <<
 	\context Voice { \voiceOne { \global R2. \unfoldRepeats \tenorMusic } }
       >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % basses
       \context Staff <<
 	\context Voice { \voiceOne { \global R2. \unfoldRepeats \bassMusic } }
       >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
 }
