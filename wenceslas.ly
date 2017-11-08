@@ -112,6 +112,14 @@ firstverse =\lyricmode {
 }
 
 Mfirstverse = \lyricmode {
+  "Good " "King " "Wen" "ces" "las " "look'd " "out"
+  "/On " "the " "feast " "of " "Steph" "en;"
+  "/When " "the " "snow " "lay " "round " "a" "bout..."
+  "/Deep, " "and " "crisp, " "and " "e" "ven;"
+  "/Bright" "ly " "shone " "the " "moon " "that " "night,"
+  "/Though " "the " "frost " "was " "cru" "el,"
+  "/When " "a " "poor " "man " "came " "in " "sight,"
+  "/Gath" "'ring " "win" "ter " "fu" "el."
 }
 
 secondverse = \lyricmode {
@@ -127,6 +135,14 @@ secondverse = \lyricmode {
 }
 
 Msecondverse = \lyricmode {
+  "\\MEN: \"Hith" "er, " "page, " "and " "stand " "by " "me,"
+  "/If " "thou " "know'st " "it, " "tell" "ing,"
+  "/Yon" "der " "peas" "ant, " "who " "is " "he?"
+  "/Where " "and " "what " "his " "dwell" "ing?\""
+  "/WOMEN: \"Sire," "he " "lives " "a " "good " "league " "hence,"
+  "/Un" "der" "neath " "the " "moun" "tain;"
+  "/Right " "a" "gainst " "the " "for" "est " "fence,"
+  "/By " "Saint " "Ag" "nes' " "foun" "tain.\""
 }
 
 thirdverse = \lyricmode {
@@ -142,6 +158,14 @@ thirdverse = \lyricmode {
 }
 
 Mthirdverse = \lyricmode {
+  "\\MEN: \"Bring " "me " "flesh " "and " "bring " "me " "wine,"
+  "/Bring " "me " "pine " "logs " "hith" "er;"
+  "/Thou " "and " "I " "will " "see " "him " "dine,"
+  "/When " "we " "bear " "them " "thith" "er.\""
+  "/ALL: Page " "and " "Mon" "arch " "forth " "they " "went,"
+  "/Forth " "they " "went " "to" "geth" "er,"
+  "/Through " "the " "rude " "wind's " "wild " "la" "ment,"
+  "/And " "the " "bit" "ter " "weath" "er."
 }
 
 fourthverse = \lyricmode {
@@ -157,6 +181,14 @@ fourthverse = \lyricmode {
 }
 
 Mfourthverse = \lyricmode {
+  "\\WOMEN: \"Sire," "the " "night " "is " "dark" "er " "now,"
+  "/And " "the " "wind " "blows " "strong" "er,"
+  "/Fails " "my " "heart, " "I " "know " "not " "how;"
+  "/I " "can " "go " "no " "long" "er.\""
+  "/MEN: \"Mark " "my " "foot" "steps, " "good " "my " "page;"
+  "/Tread " "thou " "in " "them " "bold" "ly;"
+  "/Thou " "shalt " "find " "the " "win" "ter's " "rage"
+  "/Freeze " "thy " "blood " "less " "cold" "ly.\""
 }
 
 fifthverse = \lyricmode {
@@ -172,6 +204,14 @@ fifthverse = \lyricmode {
 }
 
 Mfifthverse = \lyricmode {
+  "\\ALL: In " "his " "mas" "ter's " "steps " "he " "trod,"
+  "/Where " "the " "snow " "lay " "dint" "ed;"
+  "/Heat " "was " "in " "the " "ve" "ry " "sod"
+  "/Which " "the " "Saint " "had " "print" "ed."
+  "/There" "fore, " "Christ" "ians " "all, " "be " "sure,"
+  "/Wealth " "or " "rank " "pos" "ses" "sing,"
+  "/Ye " "who " "now " "will " "bless " "the " "poor,"
+  "/Shall " "your" "selves " "find " "bless" "ing."
 }
 
 \book
@@ -219,12 +259,12 @@ Mfifthverse = \lyricmode {
     <<
     % \context ChoirStaff <<
       \context Staff = sopranos <<
-        \set Staff.midiInstrument = #"flute"
+%        \set Staff.midiInstrument = #"flute"
 	\context Voice =
 	sopranos { \voiceOne { \global \unfoldRepeats \sopMusic } }
       >>
       \context Staff = altos <<
-        \set Staff.midiInstrument = #"clarinet"
+%        \set Staff.midiInstrument = #"clarinet"
 	\context Voice =
 	altos { \voiceTwo { \global \unfoldRepeats \altoMusic } }
       >>
@@ -232,34 +272,21 @@ Mfifthverse = \lyricmode {
       \context Lyrics = secondverse { s1 }
       \context Lyrics = thirdverse { s1 }
       \context Staff = tenors <<
-        \set Staff.midiInstrument = #"oboe"
+%        \set Staff.midiInstrument = #"oboe"
 	\clef bass
 	\context Voice =
 	tenors { \voiceOne {\global \unfoldRepeats \tenorMusic } }
       >>
       \context Staff = basses <<
-        \set Staff.midiInstrument = #"bassoon"
+%        \set Staff.midiInstrument = #"bassoon"
 	\clef bass
 	\context Voice =
 	basses { \voiceTwo {\global \unfoldRepeats \bassMusic } }
       >>
-      \context Lyrics = firstverse \lyricsto basses { \Mfirstverse \Msecondverse \Mthirdverse }
+      \context Lyrics = firstverse \lyricsto basses { \Mfirstverse \Msecondverse \Mthirdverse \Mfourthverse \Mfifthverse}
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-%	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % sopranos
     <<
@@ -269,20 +296,7 @@ Mfifthverse = \lyricmode {
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-%	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % altos
     <<
@@ -291,20 +305,7 @@ Mfifthverse = \lyricmode {
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-%	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % tenors
     <<
@@ -313,20 +314,7 @@ Mfifthverse = \lyricmode {
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-%	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
   \score { % basses
     <<
@@ -335,19 +323,6 @@ Mfifthverse = \lyricmode {
       >>
     >>
     
-    \midi {
-      \context {
-	\Staff
-	\remove "Staff_performer"
-      }
-      \context {
-	\Voice
-	\consists "Staff_performer"
-      }
-      \context {
-	\Score
-%	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
-    }
+    \midi { }
   }
 }
