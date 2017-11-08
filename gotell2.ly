@@ -30,6 +30,14 @@ drum = \drummode {
     hihat4 hh hh hh
     hihat4 hh hh hh
   }
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
 }
 
 drumdouble = \drummode {
@@ -49,6 +57,14 @@ drumdouble = \drummode {
     hihat8 hh hh hh hh hh hh hh
     hihat8 hh hh hh hh hh hh hh
   }
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
 }
 
 melodyA = \relative c' {
@@ -84,12 +100,12 @@ melody = \relative c' {
 
 melodyBassA = \relative c {
   d4(b8 a) r a b a %1
-  cis4(b8 a~a2)
+  d4(b8 a~a2)
 }
 
 melodyBassB = \relative c {
       d4^\markup{\musicglyph #"scripts.segno"}( b8 a) r a b a
-      cis4(b8 a~a2)
+      d4(b8 a~a2)
       d4(b8 a) r a b a %5
       d4 cis b(a)
       d4(b8 a) r a b a
@@ -208,16 +224,21 @@ basswords = \lyricmode {
 }
 
 Mbassintro = \lyricmode {
- "Go " "Go " "tell " "it " "Go "
+ "\Go " "Go " "tell " "it " "Go "
 }
 
 Mbassrefrain = \lyricmode {
- "Go " "Go " "tell " "it " "Go "
- "Go " "Go " "tell " "it " "ev" "'ry " "where "
- "Go " "Go " "tell " "it " "Go " "that " "Je" "sus " "Christ " "is " "born "
+ "/Go " "Go " "tell " "it " "Go "
+ "/Go " "Go " "tell " "it " "ev" "'ry " "where "
+ "/Go " "Go " "tell " "it " "Go " "/that " "Je" "sus " "Christ " "is " "born "
 }
 
 Mbasswords = \lyricmode {
+%  "/Go " "Go " "tell " "it " "Go"
+%  "/Go " "Go " "tell " "it " "Go"
+%  "/Go " "Go " "tell " "it " "ev" "'ry" "where"
+%  "/Go " "Go " "tell " "it " "Go " "that " "Je" "sus " "Christ " "is " "born"
+  "/Go " "Go " "Go " "Go"
 }
 
 \book
@@ -271,7 +292,7 @@ Mbasswords = \lyricmode {
             }
           >>
         >>
-        \context Lyrics = firstverse \lyricsto sopranos { \Mrefrain
+        \context Lyrics = firstverse \lyricsto bass { \Mrefrain
                                                           \Mfirstverse
                                                           \Mrefrain
                                                           \Msecondverse
@@ -281,7 +302,7 @@ Mbasswords = \lyricmode {
                                                         }
       \new DrumStaff
       <<
-        \unfoldRepeats \drumdouble
+        \unfoldRepeats \drum
       >>
     >>
     \midi {
@@ -320,12 +341,15 @@ Mbasswords = \lyricmode {
                                                       \Mbassrefrain
                                                       \Mbasswords
                                                       \Mbassrefrain
+                                                      \Mbasswords
                                                     }
+    \new DrumStaff { \unfoldRepeats \drum }
     >>
     \midi {
     }
   }
   \score { % melody mp3
+    <<
 	\context Staff <<
 	  \context Voice
 		     \oneVoice { \global \melodyA \melodyB \melodyC
@@ -334,6 +358,8 @@ Mbasswords = \lyricmode {
                                                   \melodyB
                                }
 	>>
+    \new DrumStaff { \unfoldRepeats \drum }
+    >>
     \midi {
     }
   }
@@ -346,6 +372,7 @@ Mbasswords = \lyricmode {
                                                    \melodyBassB \melodyBassC
                                                    \melodyBassB
                             }
+    \new DrumStaff { \unfoldRepeats \drum }
     >>
     \midi {
     }
