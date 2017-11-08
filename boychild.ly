@@ -9,7 +9,7 @@ global = {
 }
 
 boychildharm = \relative c' {
-  e4 b' a gis r8 fis4 cis8 a4 r8 fis' e4 r8 gis fis gis a4 gis1
+  e4 b' a gis r8 e4 cis8 a4 r8 fis' e4 r8 gis fis gis a4 gis1
 }
 
 bellsharm = {
@@ -374,6 +374,7 @@ Mfourthverse = \lyricmode {
 }
 
 \book
+
 {
   \header
   {
