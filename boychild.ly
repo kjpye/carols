@@ -85,13 +85,13 @@ ohmylord = \relative {
     {
       <<
 	{ais1}
-	{ais8^\markup{Men} ais ais ais b ais gis fis}
+	{s8^\markup{Men} ais ais ais b ais gis fis}
       >>
     }
     {
       <<
 	{ais1}
-	{ais8^\markup{Men} ais ais ais b ais gis fis}
+	{s8^\markup{Men} ais ais ais b ais gis fis}
       >>
       ais4^\markup{Tutti} gis8(fis) fis2 \fermata
     }
@@ -120,6 +120,129 @@ melody = \relative c' {
     \boychild
     \moment e2^\fermata
   }
+}
+
+drumtrack = \drummode {
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
+  hihat4 hh hh hh
 }
 
 maryslyrics =\lyricmode {
@@ -257,7 +380,7 @@ Mfourthverse = \lyricmode {
     title = "Mary's Boy Child"
     copyright = \today
   }
-  \score
+  \score % score
   {
     \context ChoirStaff
     <<
@@ -289,8 +412,8 @@ Mfourthverse = \lyricmode {
       }
     }
   }
-  \score {
-    \unfoldRepeats {
+  \score { % karaoke
+    \unfoldRepeats <<
 
       \context ChoirStaff
       <<
@@ -314,12 +437,13 @@ Mfourthverse = \lyricmode {
         }
         \context Lyrics = firstverse \lyricsto ohmylord { \Mfirstverse \Msecondverse \Mthirdverse \Mfourthverse }
       >>
-    }
+      \new DrumStaff { \drumtrack }
+    >>
     \midi {
     }
   }
   \score { % melody
-    \unfoldRepeats {
+    \unfoldRepeats <<
       \context ChoirStaff
       <<
 	\context Staff {
@@ -327,11 +451,12 @@ Mfourthverse = \lyricmode {
 	  \context Voice { \transpose e f \ohmylord }
         }
       >>
-    }
+      \new DrumStaff { \drumtrack }
+    >>
     \midi { }
   }
   \score { % harmony
-    \unfoldRepeats {
+    \unfoldRepeats <<
       \context ChoirStaff
       <<
         \context Staff
@@ -340,7 +465,8 @@ Mfourthverse = \lyricmode {
 	  \context Voice { \transpose e f \ohmylord }
 	}
       >>
-    }
+      \new DrumStaff { \drumtrack }
+    >>
     \midi { }
   }
 }
