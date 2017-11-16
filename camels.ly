@@ -10,10 +10,10 @@ global = {
 tempoTrack = {
   \partial 8 s8^\mf
   \repeat volta 3 {
-    \tempo 4=100
+    \tempo 8 = 200
     s4 s4 s2
     s1 s1 s1 s1 s1 s1 s1
-    \time 6/8 \tempo 4. = 100
+    \time 6/8 \tempo  8 = 200
     s4^\mp s2
     s2. s2. s2.
     s4^\pp s2

@@ -116,12 +116,12 @@ MfirstverseE = \lyricmode {
 secondverseA = \lyricmode {
   \set stanza = "f 2. "
   Joy to the earth! the Sav- iour reigns;
-  Let men their songs em- ploy;
+  Let all their songs em- ploy;
 }
 
 MsecondverseA = \lyricmode {
   "\Joy " "to " "the " "earth! " "the " "Sav" "iour " "reigns;"
-  "/Let " "men " "their " "songs " "em" "ploy;"
+  "/Let " "all " "their " "songs " "em" "ploy;"
 }
 
 secondverseB = \lyricmode {
