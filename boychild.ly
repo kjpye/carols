@@ -122,6 +122,115 @@ melody = \relative c' {
   }
 }
 
+chordtrack = \chordmode {
+  f1
+  bes1
+  f1
+  c1
+  f1 % 5
+  bes1
+  f2 c2
+  f1
+  f1
+  bes1 % 10
+  c1
+  f1
+  f1
+  g1:m
+  c1 % 15
+  f
+  f
+  bes
+  f
+  c % 20
+  f
+  f2 g:m
+  c2 f
+  d1:m
+  c % 25
+  f
+  bes
+  f2 c
+  f1
+  f % 30
+  bes
+  f2 c
+  f1
+  f
+  g:m % 35
+  c
+  f
+  f
+  bes
+  f2 c % 40
+  f1
+  s1
+  f2 g:m
+  c  f
+  d1:m % 45
+  c
+  f
+  bes
+  f2 c
+  f1 % 50
+  f2
+  s2 bes
+  s2 c
+  s2 f
+  c1 % 55
+  f
+  bes
+  s2 f
+  c2 f
+  g1 % 60
+  d
+  g
+  g
+  c
+  g2 d % 65
+  g1
+  g
+  g2 a:m
+  d2 f
+  e1:m % 70
+  d
+  g
+  c
+  g
+  d % 75
+  g
+  c
+  g2 d
+  g1
+  g2 % 80 
+  s2 c
+  s2 d
+  s2 g
+  d1
+  g1 % 85
+  s2 c
+  s2 d
+  s2 g
+  \repeat volta 4 {
+    g1
+    g % 90
+    g
+    d
+    d
+    g
+  }
+  \alternative {
+    {
+      g2 d % 95
+    }
+    {
+      g2 d
+      g1
+    }
+  }
+
+}
+
 drumtrack = \drummode {
   hihat4 hh hh hh
   hihat4 hh hh hh
@@ -385,6 +494,7 @@ Mfourthverse = \lyricmode {
   {
     \context ChoirStaff
     <<
+    \new ChordNames { \chordtrack }
       \context Staff = all
       {
 	<<
