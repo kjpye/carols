@@ -1,6 +1,8 @@
 \version "2.13.53"
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
+\include "predefined-guitar-fretboards.ly"
+
 \layout {
   \context {
     \Voice
@@ -154,6 +156,33 @@ Mfourthverse = \lyricmode {
   "/And " "a " hap "py " "new " "year."
 }
 
+chordtrack = \chordmode {
+  \partial 4 s4
+  \repeat volta 4 {
+    f2.
+    bes
+    g:7
+    c:7
+    a:7
+    d:m
+    bes2 c4:7
+    f2.
+    f
+    c
+    g:7
+    c:7
+    f
+    c
+    g2:m c4:7
+  } \alternative {
+  {
+    f2.
+  } {
+    f2.
+  }
+  }
+}
+
 \book
 {
   \header {
@@ -161,10 +190,16 @@ Mfourthverse = \lyricmode {
     copyright = \today
   }
   \score {
+    \context GrandStaff <<
+    <<
+      <<
+        \new ChordNames { \transpose f g \chordtrack }
+%        \new FretBoards { \transpose f g \chordtrack }
+      >>
     \context ChoirStaff <<
       \context Staff = melody <<
 	\context Voice =
-	melody { \global \melody }
+	melody { \transpose f g {\global \melody} }
       >>
       \context Lyrics = firstverse  { s1 }
       \context Lyrics = secondverse { s1 }
@@ -173,13 +208,15 @@ Mfourthverse = \lyricmode {
       \context Staff = bass <<
 	\clef bass
 	\context Voice =
-	bass { \global \bass }
+	bass { \transpose f g {\global \bass }}
       >>
       \context Lyrics = firstverse  \lyricsto melody \firstverse
       \context Lyrics = secondverse \lyricsto melody \secondverse
       \context Lyrics = thirdverse  \lyricsto melody \thirdverse
       \context Lyrics = fourthverse \lyricsto melody \fourthverse
     >>
+    >>
+>>
     
     \layout {
       \context {
@@ -195,14 +232,14 @@ Mfourthverse = \lyricmode {
       \context Staff = melody <<
 	\set Staff.midiInstrument = #"acoustic grand"
 	\context Voice =
-	melody { \global \unfoldRepeats \melody }
+	melody { \transpose f g {\global \unfoldRepeats \melody }}
       >>
       \context Lyrics = firstverse { s1 }
       \context Staff = bass <<
 	\set Staff.midiInstrument = #"acoustic grand"
 	\clef bass
 	\context Voice =
-	bass { \global \unfoldRepeats \bass }
+	bass { \transpose f g {\global \unfoldRepeats \bass }}
       >>
       \context Lyrics = firstverse \lyricsto melody {\Mfirstverse \Msecondverse \Mthirdverse \Mfourthverse }
     >>
