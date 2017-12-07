@@ -8,6 +8,23 @@ global = {
   \tempo 4. = 55
 }
 
+chordtrack = \chordmode {
+  \repeat volta 3 {
+    bes2.
+    s2.
+    f2.:7
+    bes2.
+    ees2.
+    bes2.
+    ees2.
+    bes2.
+    f2.:7
+    s4. bes
+    s2.
+    f4.:7 bes
+  }
+}
+
 sopMusic = \relative c' {
   \repeat volta 3 {
     f8.(\< g16) f8 \> d4. \! f8.(\< g16) f8 \> d4. \!
@@ -127,6 +144,12 @@ Mthirdverse = \lyricmode {
     copyright = \today
   }
   \score {
+    \context GrandStaff <<
+    <<
+      <<
+        \new ChordNames { \transpose f g \chordtrack }
+%        \new FretBoards { \transpose f g \chordtrack }
+      >>
     \context ChoirStaff <<
       \context Staff = women <<
 	\context Voice =
@@ -147,6 +170,7 @@ Mthirdverse = \lyricmode {
       \context Lyrics = firstverse \lyricsto basses \firstverse
       \context Lyrics = secondverse \lyricsto basses \secondverse
       \context Lyrics = thirdverse \lyricsto basses \thirdverse
+    >>
     >>
     
     \layout {
