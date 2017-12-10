@@ -1,4 +1,4 @@
-\version "2.13.53"
+\version "2.19.49"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -145,10 +145,9 @@ Mthirdverse = \lyricmode {
   }
   \score {
     \context GrandStaff <<
-    <<
       <<
-        \new ChordNames { \transpose f g \chordtrack }
-%        \new FretBoards { \transpose f g \chordtrack }
+        \new ChordNames { \chordtrack }
+%        \new FretBoards { \chordtrack }
       >>
     \context ChoirStaff <<
       \context Staff = women <<
@@ -171,13 +170,13 @@ Mthirdverse = \lyricmode {
       \context Lyrics = secondverse \lyricsto basses \secondverse
       \context Lyrics = thirdverse \lyricsto basses \thirdverse
     >>
-    >>
+>>
     
     \layout {
       \context {
 				% a little smaller so lyrics
 				% can be closer to the staff
-	\Staff \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+	\Staff \override VerticalAxisGroup.minimum-Y-extent = #'(-3 . 3)
       }
     }
   }
@@ -221,10 +220,7 @@ Mthirdverse = \lyricmode {
 	\Voice
 	\consists "Staff_performer"
       }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 80 4)
-      }
+      \tempo 4 = 80
     }
   }
   \score { % sopranos
