@@ -123,109 +123,109 @@ melody = \relative c' {
 }
 
 chordtrack = \chordmode {
-  f1
-  bes1
-  f1
-  c1
-  f1 % 5
-  bes1
-  f2 c2
-  f1
-  f1
-  bes1 % 10
-  c1
-  f1
-  f1
-  g1:m
-  c1 % 15
-  f
-  f
-  bes
-  f
-  c % 20
-  f
-  f2 g:m
-  c2 f
-  d1:m
-  c % 25
-  f
-  bes
-  f2 c
-  f1
-  f % 30
-  bes
-  f2 c
-  f1
-  f
-  g:m % 35
-  c
-  f
-  f
-  bes
-  f2 c % 40
-  f1
+  e1
+  a1
+  e1
+  b1
+  e1 % 5
+  a1
+  e2 b2
+  e1
+  e1
+  a1 % 10
+  b1
+  e1
+  e1
+  fis1:m
+  b1 % 15
+  e
+  e
+  a
+  e
+  b % 20
+  e
+  e2 fis:m
+  b2 e
+  cis1:m
+  b % 25
+  e
+  a
+  e2 b
+  e1
+  e % 30
+  a
+  e2 b
+  e1
+  e
+  fis:m % 35
+  b
+  e
+  e
+  a
+  e2 b % 40
+  e1
   s1
-  f2 g:m
-  c  f
-  d1:m % 45
-  c
-  f
-  bes
-  f2 c
-  f1 % 50
-  f2
-  s2 bes
-  s2 c
-  s2 f
-  c1 % 55
-  f
-  bes
-  s2 f
-  c2 f
-  g1 % 60
-  d
-  g
-  g
-  c
-  g2 d % 65
-  g1
-  g
-  g2 a:m
-  d2 f
+  e2 fis:m
+  b  e
+  cis1:m % 45
+  b
+  e
+  a
+  e2 b
+  e1 % 50
+  e2
+  s2 a
+  s2 b
+  s2 e
+  b1 % 55
+  e
+  a
+  s2 e
+  b2 e
+  fis1 % 60
+  cis
+  fis
+  fis
+  b
+  fis2 cis % 65
+  fis1
+  fis
+  fis2 gis:m
+  cis2 e
   e1:m % 70
-  d
-  g
-  c
-  g
-  d % 75
-  g
-  c
-  g2 d
-  g1
-  g2 % 80 
-  s2 c
-  s2 d
-  s2 g
-  d1
-  g1 % 85
-  s2 c
-  s2 d
-  s2 g
+  cis
+  fis
+  b
+  fis
+  cis % 75
+  fis
+  b
+  fis2 cis
+  fis1
+  fis2 % 80 
+  s2 b
+  s2 cis
+  s2 fis
+  cis1
+  fis1 % 85
+  s2 b
+  s2 cis
+  s2 fis
   \repeat volta 4 {
-    g1
-    g % 90
-    g
-    d
-    d
-    g
+    fis1
+    fis % 90
+    fis
+    cis
+    cis
+    fis
   }
   \alternative {
     {
-      g2 d % 95
+      fis2 cis % 95
     }
     {
-      g2 d
-      g1
+      fis2 cis
+      fis1
     }
   }
 
@@ -495,9 +495,9 @@ Mfourthverse = \lyricmode {
     \context ChoirStaff
     <<
       <<
-%        \new ChordNames { \transpose e f \chordtrack }
+        \new ChordNames { \transpose e f \chordtrack }
 %        \new FretBoards { \transpose e f \chordtrack }
-        \new ChordNames { \chordtrack }
+%        \new ChordNames { \chordtrack }
 %        \new FretBoards { \chordtrack }
       >>
       \context Staff = all
