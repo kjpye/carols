@@ -2,6 +2,8 @@
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
+\include "predefined-guitar-fretboards.ly"
+
 \header {
   title = "Go Tell It on the Mountain"
   copyright = \today
@@ -65,6 +67,25 @@ drumdouble = \drummode {
   hihat4 hh hh hh
   hihat4 hh hh hh
   hihat4 hh hh hh
+}
+
+chordtrack = \chordmode {
+  d2 a
+  d2 a
+  \repeat volta 3 {
+    d2. a4
+    d1
+    a1
+    fis2:m g4 a
+    d2. a4
+    d2 b:m
+    d2 a
+    d4 fis:m g a
+    d1
+    g2 d
+    s1
+    g2 d
+  }
 }
 
 melodyA = \relative c' {
@@ -244,7 +265,13 @@ Mbasswords = \lyricmode {
 \book
 {
   \score { % this version for the printed page
+    \context GrandStaff <<
     <<
+      <<
+        \new ChordNames { \chordtrack }
+%        \new FretBoards { \chordtrack }
+      >>
+    \context ChoirStaff <<
 	\context Staff = melody <<
 	  \context Voice =
 	  sopranos { \set midiInstrument = #"clarinet"
@@ -264,6 +291,7 @@ Mbasswords = \lyricmode {
 	\context Lyrics = thirdverse \lyricsto sopranos {\emptyrefrain \thirdverse}
 	\context Lyrics = basswords \lyricsto bass {\basswords}
     >>
+>> >>
     \layout {
     }
   }

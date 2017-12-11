@@ -495,8 +495,10 @@ Mfourthverse = \lyricmode {
     \context ChoirStaff
     <<
       <<
-        \new ChordNames { \transpose f g \chordtrack }
-%        \new FretBoards { \transpose f g \chordtrack }
+%        \new ChordNames { \transpose e f \chordtrack }
+%        \new FretBoards { \transpose e f \chordtrack }
+        \new ChordNames { \chordtrack }
+%        \new FretBoards { \chordtrack }
       >>
       \context Staff = all
       {
