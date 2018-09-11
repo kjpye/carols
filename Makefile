@@ -1,247 +1,309 @@
+# AdventRound.ly
+# OLittleTownOfBethlehem.ly
+# RollingHome.ly
+# SantyAnna.ly
+# SpringfieldMountain.ly
+# StilleNacht.ly
+# TheCoastOfHighBarbary.ly
+# TheEchoCarol-satb.ly
+# TheEchoCarol-unison.ly
+# TheHollyAndTheIvy.ly
+# TheTwelveDaysOfTheCloud.ly
+# WeWillWalkWithGod.ly
+# YoHoHoAndABottleOfRum.ly
+
+
+
+
+
+
 %.pdf %.kar %.mp3: %.ly
 	lilypond $<
 	timidity -Or -o - $*.midi | lame -r - $*.mp3
 	-mv $*.midi $*.kar
 
-carols: adam boychild calypso coventry emmanuel faithful gaudete hark infantholy joy kings littletown manger merry royal silentnight wassail maria holly_ivy deckthehalls gotell bells coming shepherds wenceslas gotell2 belltoll jubilate camels gaudeamus camels
+broken: \
+        OComeOComeEmmanual \
+        Gaudete \
+        TheCamelsCarol \
 
-shanties: blowthemandown southaustralia highbarbary drunkensailor
+
+
+carols: \
+        AdamLayYbounden \
+        MarysBoyChild \
+        CalypsoCarol \
+        CoventryCarol \
+        OComeAllYeFaithful \
+        HarkTheHeraldAngelsSing \
+        InfantHolyInfantLowly \
+        JoyToTheWorld \
+        WeThreeKings \
+        OLittleTownOfBethlehem \
+        AwayInAManger \
+        WeWishYouAMerryChristmas \
+        OnceInRoyalDavidsCity \
+        SilentNight \
+        HereWeComeAWassailing \
+        MariaWalksAmidTheThorn \
+        TheHollyAndTheIvy \
+        DeckTheHalls \
+        GoTellItOnTheMountain \
+        ChristmasBells \
+        ChristmasIsComing \
+        WhileShepherdsWatchedTheirFlocksByNight \
+        GoodKingWenceslas \
+        GoTellItOnTheMountain2 \
+        TheBellDothToll \
+        JubilateDeo \
+        GaudeamusHodie \
+
+shanties: \
+        BlowTheManDown \
+        SouthAustralia \
+        TheCoastOfHighBarbary \
+        WhatShallWeDoWithTheDrunkenSailor
 
 all: carols shanties
 
-blowthemandown: blowthemandown.pdf blowthemandown.kar
+BlowTheManDown: BlowTheManDown.pdf BlowTheManDown.kar
 
-blowthemandown.kar blowthemandown.pdf: blowthemandown.ly
+BlowTheManDown.kar BlowTheManDown.pdf: BlowTheManDown.ly
 
-southaustralia: southaustralia.pdf southaustralia.kar
+SouthAustralia: SouthAustralia.pdf SouthAustralia.kar
 
-southaustralia.kar southaustralia.pdf: southaustralia.ly
+SouthAustralia.kar SouthAustralia.pdf: SouthAustralia.ly
 
-highbarbary: highbarbary.pdf highbarbary.kar
+TheCoastOfHighBarbary: TheCoastOfHighBarbary.pdf TheCoastOfHighBarbary.kar
 
-highbarbary.kar highbarbary.pdf: highbarbary.ly
+TheCoastOfHighBarbary.kar TheCoastOfHighBarbary.pdf: TheCoastOfHighBarbary.ly
 
-drunkensailor: drunkensailor.pdf drunkensailor.kar
+WhatShallWeDoWithTheDrunkenSailor: WhatShallWeDoWithTheDrunkenSailor.pdf WhatShallWeDoWithTheDrunkenSailor.kar
 
-drunkensailor.kar drunkensailor.pdf: drunkensailor.ly
+WhatShallWeDoWithTheDrunkenSailor.kar WhatShallWeDoWithTheDrunkenSailor.pdf: WhatShallWeDoWithTheDrunkenSailor.ly
 
-boychild: boychild.pdf boychild.kar boychild.mp3 boychild-melody.mp3 boychild-harmony.mp3
+MarysBoyChild: MarysBoyChild.pdf MarysBoyChild.kar MarysBoyChild.mp3 MarysBoyChild-melody.mp3 MarysBoyChild-harmony.mp3
 
-boychild.kar boychild.pdf boychild.mp3 boychild-melody.mp3 boychild-harmony.mp3: boychild.ly
-	lilypond boychild.ly
-	timidity -Or -o - boychild.midi   | lame -r - boychild.mp3
-	timidity -Or -o - boychild-1.midi   | lame -r - boychild-melody.mp3
-	timidity -Or -o - boychild-2.midi   | lame -r - boychild-harmony.mp3
-	mv boychild.midi boychild.kar
-	rm boychild-[12].midi
+MarysBoyChild.kar MarysBoyChild.pdf MarysBoyChild.mp3 MarysBoyChild-melody.mp3 MarysBoyChild-harmony.mp3: MarysBoyChild.ly
+	lilypond MarysBoyChild.ly
+	timidity -Or -o - MarysBoyChild.midi   | lame -r - MarysBoyChild.mp3
+	timidity -Or -o - MarysBoyChild-1.midi   | lame -r - MarysBoyChild-melody.mp3
+	timidity -Or -o - MarysBoyChild-2.midi   | lame -r - MarysBoyChild-harmony.mp3
+	mv MarysBoyChild.midi MarysBoyChild.kar
+	rm MarysBoyChild-[12].midi
 
-calypso: calypso.pdf
+CalypsoCarol: CalypsoCarol.pdf
 
-calypso.pdf: calypso.ly
+CalypsoCarol.pdf: CalypsoCarol.ly
 
-coventry: coventry.pdf coventry.kar
+CoventryCarol: CoventryCarol.pdf CoventryCarol.kar
 
-coventry.kar coventry.pdf: coventry.ly
+CoventryCarol.kar CoventryCarol.pdf: CoventryCarol.ly
 
-emmanuel: emmanuel.pdf emmanuel.kar
+OComeOComeEmmanual: OComeOComeEmmanual.pdf OComeOComeEmmanual.kar
 
-emmanuel.kar emmanuel.pdf: emmanuel.ly
+OComeOComeEmmanual.kar OComeOComeEmmanual.pdf: OComeOComeEmmanual.ly
 
-gaudete: gaudete.pdf gaudete.kar
+Gaudete: Gaudete.pdf Gaudete.kar
 
-gaudete.kar gaudete.pdf: gaudete.ly
+Gaudete.kar Gaudete.pdf: Gaudete.ly
 
-hark: hark.pdf hark.kar
+HarkTheHeraldAngelsSing: HarkTheHeraldAngelsSing.pdf HarkTheHeraldAngelsSing.kar
 
-hark.kar hark.pdf: hark.ly
+HarkTheHeraldAngelsSing.kar HarkTheHeraldAngelsSing.pdf: HarkTheHeraldAngelsSing.ly
 
-kings: kings.pdf kings.kar
+WeThreeKings: WeThreeKings.pdf WeThreeKings.kar
 
-kings.kar kings.pdf: kings.ly
+WeThreeKings.kar WeThreeKings.pdf: WeThreeKings.ly
 
-littletown: littletown.pdf littletown.kar
+OLittleTownOfBethlehem: OLittleTownOfBethlehem.pdf OLittleTownOfBethlehem.kar
 
-littletown.kar littletown.pdf: littletown.ly
+OLittleTownOfBethlehem.kar OLittleTownOfBethlehem.pdf: OLittleTownOfBethlehem.ly
 
-manger: manger.pdf manger.kar
+AwayInAManger: AwayInAManger.pdf AwayInAManger.kar
 
-manger.kar manger.pdf: manger.ly
+AwayInAManger.kar AwayInAManger.pdf: AwayInAManger.ly
 
-merry: merry.pdf merry.kar
+WeWishYouAMerryChristmas: WeWishYouAMerryChristmas.pdf WeWishYouAMerryChristmas.kar
 
-merry.kar merry.pdf: merry.ly
+WeWishYouAMerryChristmas.kar WeWishYouAMerryChristmas.pdf: WeWishYouAMerryChristmas.ly
 
-quempastores: quempastores.pdf quempastores.kar
+QuemPastoresLaudavere: QuemPastoresLaudavere.pdf QuemPastoresLaudavere.kar
 
-quempastores.kar quempastores.pdf: quempastores.ly
+QuemPastoresLaudavere.kar QuemPastoresLaudavere.pdf: QuemPastoresLaudavere.ly
 
-royal: royal.pdf royal.kar
+OnceInRoyalDavidsCity: OnceInRoyalDavidsCity.pdf OnceInRoyalDavidsCity.kar
 
-royal.kar royal.pdf: royal.ly
+OnceInRoyalDavidsCity.kar OnceInRoyalDavidsCity.pdf: OnceInRoyalDavidsCity.ly
 
-silentnight: silentnight.pdf silentnight.kar silentnight.mp3 silentnight-sop.mp3 silentnight-alto.mp3 silentnight-tenor.mp3 silentnight-bass.mp3
+SilentNight: SilentNight.pdf SilentNight.kar SilentNight.mp3 SilentNight-sop.mp3 SilentNight-alto.mp3 SilentNight-tenor.mp3 SilentNight-bass.mp3
 
-silentnight.pdf silentnight.kar silentnight.mp3 silentnight-sop.mp3 silentnight-alto.mp3 silentnight-tenor.mp3 silentnight-bass.mp3: silentnight.ly
-	lilypond silentnight
-	timidity -Or -o - silentnight.midi   | lame -r - silentnight.mp3
-	timidity -Or -o - silentnight-1.midi | lame -r - silentnight-sop.mp3
-	timidity -Or -o - silentnight-2.midi | lame -r - silentnight-alto.mp3
-	timidity -Or -o - silentnight-3.midi | lame -r - silentnight-tenor.mp3
-	timidity -Or -o - silentnight-4.midi | lame -r - silentnight-bass.mp3
-	mv silentnight.midi silentnight.kar
-	rm silentnight-[1234].midi
+SilentNight.pdf SilentNight.kar SilentNight.mp3 SilentNight-sop.mp3 SilentNight-alto.mp3 SilentNight-tenor.mp3 SilentNight-bass.mp3: SilentNight.ly
+	lilypond SilentNight
+	timidity -Or -o - SilentNight.midi   | lame -r - SilentNight.mp3
+	timidity -Or -o - SilentNight-1.midi | lame -r - SilentNight-sop.mp3
+	timidity -Or -o - SilentNight-2.midi | lame -r - SilentNight-alto.mp3
+	timidity -Or -o - SilentNight-3.midi | lame -r - SilentNight-tenor.mp3
+	timidity -Or -o - SilentNight-4.midi | lame -r - SilentNight-bass.mp3
+	mv SilentNight.midi SilentNight.kar
+	rm SilentNight-[1234].midi
 
-shepherds: shepherds.pdf
+WhileShepherdsWatchedTheirFlocksByNight: WhileShepherdsWatchedTheirFlocksByNight.pdf
 
-shepherds.pdf: shepherds.ly
+WhileShepherdsWatchedTheirFlocksByNight.pdf: WhileShepherdsWatchedTheirFlocksByNight.ly
 
-sussex: sussex.pdf sussex.kar
+SussexCarol: SussexCarol.pdf SussexCarol.kar
 
-sussex.kar sussex.pdf: sussex.ly
+SussexCarol.kar SussexCarol.pdf: SussexCarol.ly
 
-holly_ivy: holly_ivy.pdf holly_ivy.pdf
+TheHollyAndTheIvy: TheHollyAndTheIvy.pdf TheHollyAndTheIvy.pdf
 
-holly_ivy.kar holly_ivy.pdf: holly_ivy.ly
+TheHollyAndTheIvy.kar TheHollyAndTheIvy.pdf: TheHollyAndTheIvy.ly
 
-deckthehalls: deckthehalls.pdf
+DeckTheHalls: DeckTheHalls.pdf
 
-deckthehalls.pdf: deckthehalls.ly
+DeckTheHalls.pdf: DeckTheHalls.ly
 
-faithful: faithful.pdf faithful-descant.kar faithful-soprano.kar faithful-alto.kar faithful-tenor.kar faithful-bass.kar
+OComeAllYeFaithful: OComeAllYeFaithful.pdf OComeAllYeFaithful-descant.kar OComeAllYeFaithful-soprano.kar OComeAllYeFaithful-alto.kar OComeAllYeFaithful-tenor.kar OComeAllYeFaithful-bass.kar
 
-faithful.pdf faithful-descant.kar faithful-soprano.kar faithful-alto.kar faithful-tenor.kar faithful-bass.kar: faithful.ly
-	lilypond faithful.ly
-	timidity -Or -o - faithful.midi | lame -r - faithful.mp3
-	mv faithful.midi faithful-descant.kar
-	mv faithful-1.midi faithful-soprano.kar
-	mv faithful-2.midi faithful-alto.kar
-	mv faithful-3.midi faithful-tenor.kar
-	mv faithful-4.midi faithful-bass.kar
+OComeAllYeFaithful.pdf OComeAllYeFaithful-descant.kar OComeAllYeFaithful-soprano.kar OComeAllYeFaithful-alto.kar OComeAllYeFaithful-tenor.kar OComeAllYeFaithful-bass.kar: OComeAllYeFaithful.ly
+	lilypond OComeAllYeFaithful.ly
+	timidity -Or -o - OComeAllYeFaithful.midi | lame -r - OComeAllYeFaithful.mp3
+	mv OComeAllYeFaithful.midi OComeAllYeFaithful-descant.kar
+	mv OComeAllYeFaithful-1.midi OComeAllYeFaithful-soprano.kar
+	mv OComeAllYeFaithful-2.midi OComeAllYeFaithful-alto.kar
+	mv OComeAllYeFaithful-3.midi OComeAllYeFaithful-tenor.kar
+	mv OComeAllYeFaithful-4.midi OComeAllYeFaithful-bass.kar
 
-joy: joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar joy.mp3 joy-sop.mp3 joy-alto.mp3 joy-tenor.mp3 joy-bass.mp3
+JoyToTheWorld: JoyToTheWorld.pdf JoyToTheWorld-women.kar JoyToTheWorld-tenor.kar JoyToTheWorld-bass.kar JoyToTheWorld.mp3 JoyToTheWorld-sop.mp3 JoyToTheWorld-alto.mp3 JoyToTheWorld-tenor.mp3 JoyToTheWorld-bass.mp3
 
-joy.pdf joy-women.kar joy-tenor.kar joy-bass.kar joy.mp3 joy-sop.mp3 joy-alto.mp3 joy-tenor.mp3 joy-bass.mp3: joy.ly
-	lilypond joy.ly
-	timidity -Or -o - joy.midi   | lame -r - joy.mp3
-	timidity -Or -o - joy-3.midi | lame -r - joy-sop.mp3
-	timidity -Or -o - joy-4.midi | lame -r - joy-alto.mp3
-	timidity -Or -o - joy-5.midi | lame -r - joy-tenor.mp3
-	timidity -Or -o - joy-6.midi | lame -r - joy-bass.mp3
-	mv joy.midi joy-women.kar
-	mv joy-1.midi joy-tenor.kar
-	mv joy-2.midi joy-bass.kar
-	rm joy-[3456].midi
+JoyToTheWorld.pdf JoyToTheWorld-women.kar JoyToTheWorld-tenor.kar JoyToTheWorld-bass.kar JoyToTheWorld.mp3 JoyToTheWorld-sop.mp3 JoyToTheWorld-alto.mp3 JoyToTheWorld-tenor.mp3 JoyToTheWorld-bass.mp3: JoyToTheWorld.ly
+	lilypond JoyToTheWorld.ly
+	timidity -Or -o - JoyToTheWorld.midi   | lame -r - JoyToTheWorld.mp3
+	timidity -Or -o - JoyToTheWorld-3.midi | lame -r - JoyToTheWorld-sop.mp3
+	timidity -Or -o - JoyToTheWorld-4.midi | lame -r - JoyToTheWorld-alto.mp3
+	timidity -Or -o - JoyToTheWorld-5.midi | lame -r - JoyToTheWorld-tenor.mp3
+	timidity -Or -o - JoyToTheWorld-6.midi | lame -r - JoyToTheWorld-bass.mp3
+	mv JoyToTheWorld.midi JoyToTheWorld-women.kar
+	mv JoyToTheWorld-1.midi JoyToTheWorld-tenor.kar
+	mv JoyToTheWorld-2.midi JoyToTheWorld-bass.kar
+	rm JoyToTheWorld-[3456].midi
 
-adam: AdamLayYbounden.pdf AdamLayYbounden.kar
+AdamLayYbounden: \
+                 AdamLayYbounden.pdf \
+                 AdamLayYbounden-sop.kar \
+                 AdamLayYbounden-alto.kar \
+                 AdamLayYbounden-ten.kar \
+                 AdamLayYbounden-bass.kar
 
 AdamLayYbounden.pdf AdamLayYbounden.kar: AdamLayYbounden.ly
 	lilypond AdamLayYbounden
-	timidity -Or -o - AdamLayYbounden.midi | lame -r - AdmaLayYbounden.mp3
+	timidity -Or -o - AdamLayYbounden.midi | lame -r - AdamLayYbounden.mp3
 	mv AdamLayYbounden.midi AdamLayYbounden-sop.kar
 	mv AdamLayYbounden-1.midi AdamLayYbounden-alto.kar
 	mv AdamLayYbounden-2.midi AdamLayYbounden-ten.kar
 	mv AdamLayYbounden-3.midi AdamLayYbounden-bass.kar
 
-wassail: wassail.pdf wassail.kar wassail-bass.kar
+HereWeComeAWassailing: HereWeComeAWassailing.pdf HereWeComeAWassailing.kar HereWeComeAWassailing-bass.kar
 
-wassail.pdf wassail.kar wassail-bass.kar: wassail.ly
-	lilypond wassail
-	timidity -Or -o - wassail.midi | lame -r - wassail.mp3
-	mv wassail.midi wassail.kar
-	mv wassail-1.midi wassail-bass.kar
+HereWeComeAWassailing.pdf HereWeComeAWassailing.kar HereWeComeAWassailing-bass.kar: HereWeComeAWassailing.ly
+	lilypond HereWeComeAWassailing
+	timidity -Or -o - HereWeComeAWassailing.midi | lame -r - HereWeComeAWassailing.mp3
+	mv HereWeComeAWassailing.midi HereWeComeAWassailing.kar
+	mv HereWeComeAWassailing-1.midi HereWeComeAWassailing-bass.kar
 
-infantholy: infantholy.pdf infantholy.kar
+InfantHolyInfantLowly: InfantHolyInfantLowly.pdf InfantHolyInfantLowly.kar
 
-infantholy.kar infantholy.pdf: infantholy.ly
-	lilypond infantholy
-	timidity -Or -o - infantholy.midi | lame -r - infantholy.mp3
-	mv infantholy.midi infantholy-sop.kar
-	mv infantholy-1.midi infantholy-alto.kar
-	mv infantholy-2.midi infantholy-tenor.kar
-	mv infantholy-3.midi infantholy-bass.kar
+InfantHolyInfantLowly.kar InfantHolyInfantLowly.pdf: InfantHolyInfantLowly.ly
+	lilypond InfantHolyInfantLowly
+	timidity -Or -o - InfantHolyInfantLowly.midi | lame -r - InfantHolyInfantLowly.mp3
+	mv InfantHolyInfantLowly.midi InfantHolyInfantLowly-sop.kar
+	mv InfantHolyInfantLowly-1.midi InfantHolyInfantLowly-alto.kar
+	mv InfantHolyInfantLowly-2.midi InfantHolyInfantLowly-tenor.kar
+	mv InfantHolyInfantLowly-3.midi InfantHolyInfantLowly-bass.kar
 
-maria: maria.pdf maria.kar
+MariaWalksAmidTheThorn: MariaWalksAmidTheThorn.pdf MariaWalksAmidTheThorn.kar
 
-maria.kar maria.pdf: maria.ly
-	lilypond maria
-	timidity -Or -o - maria.midi | lame -r - maria.mp3
-	mv maria.midi maria-sopten.kar
-	mv maria-1.midi maria-altobass.kar
+MariaWalksAmidTheThorn.kar MariaWalksAmidTheThorn.pdf: MariaWalksAmidTheThorn.ly
+	lilypond MariaWalksAmidTheThorn
+	timidity -Or -o - MariaWalksAmidTheThorn.midi | lame -r - MariaWalksAmidTheThorn.mp3
+	mv MariaWalksAmidTheThorn.midi MariaWalksAmidTheThorn-sopten.kar
+	mv MariaWalksAmidTheThorn-1.midi MariaWalksAmidTheThorn-altobass.kar
 
-gotell: gotell.pdf gotell.kar
+GoTellItOnTheMountain: GoTellItOnTheMountain.pdf GoTellItOnTheMountain.kar
 
-gotell.kar gotell.pdf: gotell.ly
-	lilypond gotell
-	timidity -Or -o - gotell.midi | lame -r - gotell.mp3
-	mv gotell.midi gotell.kar
+GoTellItOnTheMountain.kar GoTellItOnTheMountain.pdf: GoTellItOnTheMountain.ly
+	lilypond GoTellItOnTheMountain
+	timidity -Or -o - GoTellItOnTheMountain.midi | lame -r - GoTellItOnTheMountain.mp3
+	mv GoTellItOnTheMountain.midi GoTellItOnTheMountain.kar
 
-gotell2: gotell2.pdf gotell2.kar gotell2-bass.kar gotell2.mp3 gotell2-melody.mp3 gotell2-bass.mp3
+GoTellItOnTheMountain2: GoTellItOnTheMountain2.pdf GoTellItOnTheMountain2.kar GoTellItOnTheMountain2-bass.kar GoTellItOnTheMountain2.mp3 GoTellItOnTheMountain2-melody.mp3 GoTellItOnTheMountain2-bass.mp3
 
-gotell2.pdf gotell2.kar gotell2-bass.kar gotell2.mp3 gotell2-melody.mp3 gotell2-bass.mp3: gotell2.ly
-	lilypond gotell2
-	timidity -Or -o - gotell2.midi | lame -r - gotell2.mp3
-	timidity -Or -o - gotell2-2.midi | lame -r - gotell2-melody.mp3
-	timidity -Or -o - gotell2-3.midi | lame -r - gotell2-bass.mp3
-	mv gotell2.midi gotell2.kar
-	mv gotell2-1.midi gotell2-bass.kar
-	rm gotell2-[23].midi
+GoTellItOnTheMountain2.pdf GoTellItOnTheMountain2.kar GoTellItOnTheMountain2-bass.kar GoTellItOnTheMountain2.mp3 GoTellItOnTheMountain2-melody.mp3 GoTellItOnTheMountain2-bass.mp3: GoTellItOnTheMountain2.ly
+	lilypond GoTellItOnTheMountain2
+	timidity -Or -o - GoTellItOnTheMountain2.midi | lame -r - GoTellItOnTheMountain2.mp3
+	timidity -Or -o - GoTellItOnTheMountain2-2.midi | lame -r - GoTellItOnTheMountain2-melody.mp3
+	timidity -Or -o - GoTellItOnTheMountain2-3.midi | lame -r - GoTellItOnTheMountain2-bass.mp3
+	mv GoTellItOnTheMountain2.midi GoTellItOnTheMountain2.kar
+	mv GoTellItOnTheMountain2-1.midi GoTellItOnTheMountain2-bass.kar
+	rm GoTellItOnTheMountain2-[23].midi
 
-jubilate: jubilate.pdf jubilate.kar
+JubilateDeo: JubilateDeo.pdf JubilateDeo.kar
 
-jubilate.kar jubilate.pdf: jubilate.ly
-	lilypond jubilate
-	timidity -Or -o - jubilate.midi | lame -r - jubilate.mp3
-	mv jubilate.midi jubilate.kar
+JubilateDeo.kar JubilateDeo.pdf: JubilateDeo.ly
+	lilypond JubilateDeo
+	timidity -Or -o - JubilateDeo.midi | lame -r - JubilateDeo.mp3
+	mv JubilateDeo.midi JubilateDeo.kar
 
-belltoll: belltoll.pdf belltoll.kar
+TheBellDothToll: TheBellDothToll.pdf TheBellDothToll.kar
 
-belltoll.kar belltoll.pdf: belltoll.ly
-	lilypond belltoll
-	timidity -Or -o - belltoll.midi | lame -r - belltoll.mp3
-	mv belltoll.midi belltoll.kar
+TheBellDothToll.kar TheBellDothToll.pdf: TheBellDothToll.ly
+	lilypond TheBellDothToll
+	timidity -Or -o - TheBellDothToll.midi | lame -r - TheBellDothToll.mp3
+	mv TheBellDothToll.midi TheBellDothToll.kar
 
-bells: bells.pdf bells.kar
+ChristmasBells: ChristmasBells.pdf ChristmasBells.kar
 
-bells.kar bells.pdf: bells.ly
-	lilypond bells
-	timidity -Or -o - bells.midi | lame -r - bells.mp3
-	mv bells.midi bells1.kar
-	mv bells-1.midi bells2.kar
+ChristmasBells.kar ChristmasBells.pdf: ChristmasBells.ly
+	lilypond ChristmasBells
+	timidity -Or -o - ChristmasBells.midi | lame -r - ChristmasBells.mp3
+	mv ChristmasBells.midi ChristmasBells1.kar
+	mv ChristmasBells-1.midi ChristmasBells2.kar
 
-coming: coming.pdf coming.kar
+ChristmasIsComing: ChristmasIsComing.pdf ChristmasIsComing.kar
 
-wenceslas: wenceslas.pdf wenceslas.kar wenceslas.mp3 wenceslas-sop.mp3 wenceslas-alto.mp3 wenceslas-tenor.mp3 wenceslas-bass.mp3
+GoodKingWenceslas: GoodKingWenceslas.pdf GoodKingWenceslas.kar GoodKingWenceslas.mp3 GoodKingWenceslas-sop.mp3 GoodKingWenceslas-alto.mp3 GoodKingWenceslas-tenor.mp3 GoodKingWenceslas-bass.mp3
 
-wenceslas.pdf wenceslas.kar wenceslas.mp3 wenceslas-sop.mp3 wenceslas-alto.mp3 wenceslas-tenor.mp3 wenceslas-bass.mp3: wenceslas.ly
-	lilypond wenceslas
-	timidity -Or -o - wenceslas.midi   | lame -r - wenceslas.mp3
-	timidity -Or -o - wenceslas-1.midi | lame -r - wenceslas-sop.mp3
-	timidity -Or -o - wenceslas-2.midi | lame -r - wenceslas-alto.mp3
-	timidity -Or -o - wenceslas-3.midi | lame -r - wenceslas-tenor.mp3
-	timidity -Or -o - wenceslas-4.midi | lame -r - wenceslas-bass.mp3
-	mv wenceslas.midi wenceslas.kar
-	rm wenceslas-[1234].midi
+GoodKingWenceslas.pdf GoodKingWenceslas.kar GoodKingWenceslas.mp3 GoodKingWenceslas-sop.mp3 GoodKingWenceslas-alto.mp3 GoodKingWenceslas-tenor.mp3 GoodKingWenceslas-bass.mp3: GoodKingWenceslas.ly
+	lilypond GoodKingWenceslas
+	timidity -Or -o - GoodKingWenceslas.midi   | lame -r - GoodKingWenceslas.mp3
+	timidity -Or -o - GoodKingWenceslas-1.midi | lame -r - GoodKingWenceslas-sop.mp3
+	timidity -Or -o - GoodKingWenceslas-2.midi | lame -r - GoodKingWenceslas-alto.mp3
+	timidity -Or -o - GoodKingWenceslas-3.midi | lame -r - GoodKingWenceslas-tenor.mp3
+	timidity -Or -o - GoodKingWenceslas-4.midi | lame -r - GoodKingWenceslas-bass.mp3
+	mv GoodKingWenceslas.midi GoodKingWenceslas.kar
+	rm GoodKingWenceslas-[1234].midi
 
-camels: camels.pdf camels.kar camels.mp3 camels-sop.mp3 camels-alto.mp3 camels-tenor.mp3 camels-bass.mp3
+TheCamelsCarols: TheCamelsCarols.pdf TheCamelsCarols.kar TheCamelsCarols.mp3 TheCamelsCarols-sop.mp3 TheCamelsCarols-alto.mp3 TheCamelsCarols-tenor.mp3 TheCamelsCarols-bass.mp3
 
-camels.pdf camels.kar camels.mp3 camels-sop.mp3 camels-alto.mp3 camels-tenor.mp3 camels-bass.mp3: camels.ly
-	lilypond camels
-	timidity -Or -o - camels.midi   | lame -r - camels.mp3
-	timidity -Or -o - camels-1.midi | lame -r - camels-sop.mp3
-	timidity -Or -o - camels-2.midi | lame -r - camels-alto.mp3
-	timidity -Or -o - camels-3.midi | lame -r - camels-tenor.mp3
-	timidity -Or -o - camels-4.midi | lame -r - camels-bass.mp3
-	mv camels.midi camels.kar
-	rm camels-[1234].midi
+TheCamelsCarols.pdf TheCamelsCarols.kar TheCamelsCarols.mp3 TheCamelsCarols-sop.mp3 TheCamelsCarols-alto.mp3 TheCamelsCarols-tenor.mp3 TheCamelsCarols-bass.mp3: TheCamelsCarols.ly
+	lilypond TheCamelsCarols
+	timidity -Or -o - TheCamelsCarols.midi   | lame -r - TheCamelsCarols.mp3
+	timidity -Or -o - TheCamelsCarols-1.midi | lame -r - TheCamelsCarols-sop.mp3
+	timidity -Or -o - TheCamelsCarols-2.midi | lame -r - TheCamelsCarols-alto.mp3
+	timidity -Or -o - TheCamelsCarols-3.midi | lame -r - TheCamelsCarols-tenor.mp3
+	timidity -Or -o - TheCamelsCarols-4.midi | lame -r - TheCamelsCarols-bass.mp3
+	mv TheCamelsCarols.midi TheCamelsCarols.kar
+	rm TheCamelsCarols-[1234].midi
 
-gaudeamus: gaudeamus.pdf gaudeamus.kar
+GaudeamusHodie: GaudeamusHodie.pdf GaudeamusHodie.kar
 
-coming.kar coming.pdf: coming.ly
-	lilypond coming
-	timidity -Or -o - coming.midi | lame -r - coming.mp3
-	mv coming.midi coming1.kar
-	mv coming-1.midi coming2.kar
-	mv coming-2.midi coming3.kar
+ChristmasIsComing.kar ChristmasIsComing.pdf: ChristmasIsComing.ly
+	lilypond ChristmasIsComing
+	timidity -Or -o - ChristmasIsComing.midi | lame -r - ChristmasIsComing.mp3
+	mv ChristmasIsComing.midi ChristmasIsComing1.kar
+	mv ChristmasIsComing-1.midi ChristmasIsComing2.kar
+	mv ChristmasIsComing-2.midi ChristmasIsComing3.kar
 
 
 
