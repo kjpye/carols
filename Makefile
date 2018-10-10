@@ -31,32 +31,32 @@ broken: \
 
 carols: \
         AdamLayYbounden \
-        MarysBoyChild \
-        CalypsoCarol \
-        CoventryCarol \
-        OComeAllYeFaithful \
-        HarkTheHeraldAngelsSing \
-        InfantHolyInfantLowly \
-        JoyToTheWorld \
-        WeThreeKings \
-        OLittleTownOfBethlehem \
         AwayInAManger \
-        WeWishYouAMerryChristmas \
-        OnceInRoyalDavidsCity \
-        SilentNight \
-        HereWeComeAWassailing \
-        MariaWalksAmidTheThorn \
-        TheHollyAndTheIvy \
-        DeckTheHalls \
-        GoTellItOnTheMountain \
+        CalypsoCarol \
         ChristmasBells \
         ChristmasIsComing \
-        WhileShepherdsWatchedTheirFlocksByNight \
-        GoodKingWenceslas \
-        GoTellItOnTheMountain2 \
-        TheBellDothToll \
-        JubilateDeo \
+        CoventryCarol \
+        DeckTheHalls \
         GaudeamusHodie \
+        GoodKingWenceslas \
+        GoTellItOnTheMountain \
+        GoTellItOnTheMountain2 \
+        HarkTheHeraldAngelsSing \
+        HereWeComeAWassailing \
+        InfantHolyInfantLowly \
+        JoyToTheWorld \
+        JubilateDeo \
+        MariaWalksAmidTheThorn \
+        MarysBoyChild \
+        OComeAllYeFaithful \
+        OLittleTownOfBethlehem \
+        OnceInRoyalDavidsCity \
+        SilentNight \
+        TheBellDothToll \
+        TheHollyAndTheIvy \
+        WeThreeKings \
+        WeWishYouAMerryChristmas \
+        WhileShepherdsWatchedTheirFlocksByNight \
 
 shanties: \
         BlowTheManDown \
@@ -147,6 +147,18 @@ SilentNight.pdf SilentNight.kar SilentNight.mp3 SilentNight-sop.mp3 SilentNight-
 	timidity -Or -o - SilentNight-4.midi | lame -r - SilentNight-bass.mp3
 	mv SilentNight.midi SilentNight.kar
 	rm SilentNight-[1234].midi
+
+MaryHushedTheLittleJesus: MaryHushedTheLittleJesus.pdf MaryHushedTheLittleJesus.kar MaryHushedTheLittleJesus.mp3 MaryHushedTheLittleJesus-sop.mp3 MaryHushedTheLittleJesus-alto.mp3 MaryHushedTheLittleJesus-tenor.mp3 MaryHushedTheLittleJesus-bass.mp3
+
+MaryHushedTheLittleJesus.pdf MaryHushedTheLittleJesus.kar MaryHushedTheLittleJesus.mp3 MaryHushedTheLittleJesus-sop.mp3 MaryHushedTheLittleJesus-alto.mp3 MaryHushedTheLittleJesus-tenor.mp3 MaryHushedTheLittleJesus-bass.mp3: MaryHushedTheLittleJesus.ly
+	lilypond MaryHushedTheLittleJesus
+	timidity -Or -o - MaryHushedTheLittleJesus.midi   | lame -r - MaryHushedTheLittleJesus.mp3
+	timidity -Or -o - MaryHushedTheLittleJesus-1.midi | lame -r - MaryHushedTheLittleJesus-sop.mp3
+	timidity -Or -o - MaryHushedTheLittleJesus-2.midi | lame -r - MaryHushedTheLittleJesus-alto.mp3
+	timidity -Or -o - MaryHushedTheLittleJesus-3.midi | lame -r - MaryHushedTheLittleJesus-tenor.mp3
+	timidity -Or -o - MaryHushedTheLittleJesus-4.midi | lame -r - MaryHushedTheLittleJesus-bass.mp3
+	mv MaryHushedTheLittleJesus.midi MaryHushedTheLittleJesus.kar
+	rm MaryHushedTheLittleJesus-[1234].midi
 
 WhileShepherdsWatchedTheirFlocksByNight: WhileShepherdsWatchedTheirFlocksByNight.pdf
 
