@@ -32,6 +32,7 @@ broken: \
 carols: \
         AdamLayYbounden \
         AwayInAManger \
+        AwayInAManger-Kirkpatrick \
         CalypsoCarol \
         ChristmasBells \
         ChristmasIsComing \
@@ -123,6 +124,18 @@ OLittleTownOfBethlehem.kar OLittleTownOfBethlehem.pdf: OLittleTownOfBethlehem.ly
 AwayInAManger: AwayInAManger.pdf AwayInAManger.kar
 
 AwayInAManger.kar AwayInAManger.pdf: AwayInAManger.ly
+
+AwayInAManger-Kirkpatrick: AwayInAManger-Kirkpatrick.pdf AwayInAManger-Kirkpatrick.kar AwayInAManger-Kirkpatrick.mp3 AwayInAManger-Kirkpatrick-sop.mp3 AwayInAManger-Kirkpatrick-alto.mp3 AwayInAManger-Kirkpatrick-tenor.mp3 AwayInAManger-Kirkpatrick-bass.mp3
+
+AwayInAManger-Kirkpatrick.pdf AwayInAManger-Kirkpatrick.kar AwayInAManger-Kirkpatrick.mp3 AwayInAManger-Kirkpatrick-sop.mp3 AwayInAManger-Kirkpatrick-alto.mp3 AwayInAManger-Kirkpatrick-tenor.mp3 AwayInAManger-Kirkpatrick-bass.mp3: AwayInAManger-Kirkpatrick.ly
+	lilypond AwayInAManger-Kirkpatrick
+	timidity -Or -o - AwayInAManger-Kirkpatrick.midi   | lame -r - AwayInAManger-Kirkpatrick.mp3
+	timidity -Or -o - AwayInAManger-Kirkpatrick-1.midi | lame -r - AwayInAManger-Kirkpatrick-sop.mp3
+	timidity -Or -o - AwayInAManger-Kirkpatrick-2.midi | lame -r - AwayInAManger-Kirkpatrick-alto.mp3
+	timidity -Or -o - AwayInAManger-Kirkpatrick-3.midi | lame -r - AwayInAManger-Kirkpatrick-tenor.mp3
+	timidity -Or -o - AwayInAManger-Kirkpatrick-4.midi | lame -r - AwayInAManger-Kirkpatrick-bass.mp3
+	mv AwayInAManger-Kirkpatrick.midi AwayInAManger-Kirkpatrick.kar
+	rm AwayInAManger-Kirkpatrick-[1234].midi
 
 WeWishYouAMerryChristmas: WeWishYouAMerryChristmas.pdf WeWishYouAMerryChristmas.kar
 
