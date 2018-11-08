@@ -35,6 +35,7 @@ carols: \
         AwayInAManger-Kirkpatrick \
         CalypsoCarol \
         ChristmasBells \
+        ChristmasDay \
         ChristmasIsComing \
         CoventryCarol \
         DeckTheHalls \
@@ -136,6 +137,18 @@ AwayInAManger-Kirkpatrick.pdf AwayInAManger-Kirkpatrick.kar AwayInAManger-Kirkpa
 	timidity -Or -o - AwayInAManger-Kirkpatrick-4.midi | lame -r - AwayInAManger-Kirkpatrick-bass.mp3
 	mv AwayInAManger-Kirkpatrick.midi AwayInAManger-Kirkpatrick.kar
 	rm AwayInAManger-Kirkpatrick-[1234].midi
+
+ChristmasDay: ChristmasDay.pdf ChristmasDay.kar ChristmasDay.mp3 ChristmasDay-sop.mp3 ChristmasDay-alto.mp3 ChristmasDay-tenor.mp3 ChristmasDay-bass.mp3
+
+ChristmasDay.pdf ChristmasDay.kar ChristmasDay.mp3 ChristmasDay-sop.mp3 ChristmasDay-alto.mp3 ChristmasDay-tenor.mp3 ChristmasDay-bass.mp3: ChristmasDay.ly
+	lilypond ChristmasDay
+	timidity -Or -o - ChristmasDay.midi   | lame -r - ChristmasDay.mp3
+	timidity -Or -o - ChristmasDay-1.midi | lame -r - ChristmasDay-sop.mp3
+	timidity -Or -o - ChristmasDay-2.midi | lame -r - ChristmasDay-alto.mp3
+	timidity -Or -o - ChristmasDay-3.midi | lame -r - ChristmasDay-tenor.mp3
+	timidity -Or -o - ChristmasDay-4.midi | lame -r - ChristmasDay-bass.mp3
+	mv ChristmasDay.midi ChristmasDay.kar
+	rm ChristmasDay-[1234].midi
 
 WeWishYouAMerryChristmas: WeWishYouAMerryChristmas.pdf WeWishYouAMerryChristmas.kar
 

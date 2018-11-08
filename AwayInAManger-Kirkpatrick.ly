@@ -9,6 +9,7 @@ global = {
 
 sopMusic = \relative c' {
   \partial 4
+  \override Score.BarNumber.break-visibility = ##(#f #t #t)
   \repeat volta 3 {
     c4
     f4 f g8(a)
